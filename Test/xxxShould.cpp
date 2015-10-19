@@ -65,6 +65,11 @@
 	could exit is our Fitness to compare the cromosome against others.
 
 
+	Notes for my aproach.
+	- 48 bits mean 48^2 = 2304 possible combinations available.
+	- The whole simulation has a high cost and will take some time.
+	- Maybe use the tournament selection mode.
+	- 
 */
 
 
