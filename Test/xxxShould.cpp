@@ -69,7 +69,7 @@
 	- 48 bits mean 48^2 = 2304 possible combinations available.
 	- The whole simulation has a high cost and will take some time.
 	- Maybe use the tournament selection mode.
-	- 
+	- Still don't know what reproduction technique to apply.
 */
 
 
