@@ -1,9 +1,14 @@
 ﻿#pragma once
+#include "Position.h"
+#include "../Cells/Cell.h"
+#include <unordered_map>
+
 
 class TrafficLight;
 
 class Road
 {
+	std::unordered_map<Position, Cell> road;
 
 public:
 

@@ -78,6 +78,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Cells\Cell.h" />
+    <ClInclude Include="Cells\EntryCell.h" />
+    <ClInclude Include="Cells\ExitCell.h" />
     <ClInclude Include="Exceptions\NotImplementedException.h" />
     <ClInclude Include="RoadSystem\Position.h" />
     <ClInclude Include="RoadSystem\Road.h" />
@@ -85,6 +88,9 @@
     <ClInclude Include="RoadSystem\TrafficLight.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cells\Cell.cpp" />
+    <ClCompile Include="Cells\EntryCell.cpp" />
+    <ClCompile Include="Cells\ExitCell.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RoadSystem\Position.cpp" />
     <ClCompile Include="RoadSystem\Road.cpp" />

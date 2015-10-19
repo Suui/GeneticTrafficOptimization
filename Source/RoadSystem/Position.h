@@ -1,16 +1,33 @@
 ﻿#pragma once
+#include <system_error>
 
 
-class Position
+struct Position
 {
-	const int x, y;
+	Position(int x, int y) : x(x), y(y) {}
 
-public:
+	friend bool operator==(const Position& a, const Position& b) { return a.x == b.x && a.y == b.y; }
 
-	Position(int x, int y);
+	friend bool operator!=(const Position& a, const Position& b) { return !(a == b); }
+	
+	int GetX() const { return x; }
 
+	int GetY() const { return y; }
 
-	friend bool operator==(const Position& a, const Position& b);
+private:
 
-	friend bool operator!=(const Position& a, const Position& b);
+	const unsigned int x, y;
 };
+
+
+namespace std{
+
+	template<>
+	struct hash<Position>
+	{
+		size_t operator()(const Position& pos) const
+		{
+			return pos.GetX() * 20 + pos.GetY();
+		}
+	};
+}

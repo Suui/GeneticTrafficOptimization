@@ -30,6 +30,15 @@
     <ClCompile Include="RoadSystem\Position.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cells\Cell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cells\EntryCell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cells\ExitCell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RoadSystem\RoadSystem.h">
@@ -45,6 +54,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RoadSystem\Position.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cells\Cell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cells\EntryCell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cells\ExitCell.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

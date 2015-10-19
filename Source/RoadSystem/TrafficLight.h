@@ -1,10 +1,9 @@
 ﻿#pragma once
 
-class Position;
+struct Position;
 
 class TrafficLight
 {
-
 
 public:
 

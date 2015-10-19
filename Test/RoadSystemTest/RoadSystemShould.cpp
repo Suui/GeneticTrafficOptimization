@@ -140,11 +140,21 @@ SCENARIO("Road Should")
 {
 	GIVEN("A builder that stops at the From function")
 	{
-		Road testRoad = Road().From(0, 4);
+		Road testRoad = Road().build().From(0, 4);
 
 		THEN("return a length of 1")
 		{
 			CHECK(testRoad.Length() == 1);
+		}
+	}
+
+	GIVEN("A builder that stops at the To function")
+	{
+		Road testRoad = Road().build().From(0, 4).To(13, 4);
+
+		THEN("return the correct length")
+		{
+			CHECK(testRoad.Length() == 14);
 		}
 	}
 

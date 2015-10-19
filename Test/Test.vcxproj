@@ -59,7 +59,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Source\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>RoadSystem.obj;Road.obj;TrafficLight.obj;Position.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RoadSystem.obj;Road.obj;TrafficLight.obj;Position.obj;Cell.obj;EntryCell.obj;ExitCell.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
