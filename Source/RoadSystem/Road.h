@@ -28,4 +28,5 @@ public:
 
 	Position GetFirstTrafficLightPosition();
 
+	Position GetSecondTrafficLightPosition();
 };

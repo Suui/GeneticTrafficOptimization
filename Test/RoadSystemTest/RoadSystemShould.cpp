@@ -168,4 +168,15 @@ SCENARIO("Road Should")
 		}
 	}
 
+	GIVEN("A builder that stops at the WithSecondTrafficLight function")
+	{
+		Road testRoad = Road().build().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4);
+		REQUIRE(testRoad.Length() == 14);
+
+		THEN("return the first and second Traffic Light at the correct positions")
+		{
+			CHECK(testRoad.GetFirstTrafficLightPosition() == Position(3, 4));
+			CHECK(testRoad.GetSecondTrafficLightPosition() == Position(8, 4));
+		}
+	}
 }

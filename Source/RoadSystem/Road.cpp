@@ -50,7 +50,10 @@ Road Road::WithFirstTrafficLightIn(int x, int y)
 
 Road Road::WithSecondTrafficLight(int x, int y)
 {
-	throw NotImplementedException();
+	secondTrafficLightPosition = Position(x, y);
+	road[secondTrafficLightPosition] = TrafficLightCell();
+
+	return *this;
 }
 
 
@@ -64,6 +67,8 @@ Position Road::GetFirstTrafficLightPosition()
 {
 	return firtTrafficLightPosition;
 }
+
+Position Road::GetSecondTrafficLightPosition()
 {
-	throw NotImplementedException();
+	return secondTrafficLightPosition;
 }
