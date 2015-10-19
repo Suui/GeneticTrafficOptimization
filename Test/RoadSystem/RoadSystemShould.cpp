@@ -103,6 +103,29 @@
 */
 
 
+SCENARIO("Road System Should")
 {
+	GIVEN("The road system")
+	{
+		RoadSystem roadSystem = RoadSystem()
+								.WithFirstRoad	(Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4))
+								.WithSecondRoad	(Road().From(0, 9).To(13, 9).WithFirstTrafficLightIn(3, 9).WithSecondTrafficLight(8, 9))
+								.WithThirdRoad	(Road().From(4, 0).To(4, 13).WithFirstTrafficLightIn(4, 3).WithSecondTrafficLight(4, 8))
+								.WithFourthRoad	(Road().From(9, 0).To(9, 13).WithFirstTrafficLightIn(9, 3).WithSecondTrafficLight(9, 8));
+	
 
+		WHEN("The first road has the expected length")
+		{
+			Road expectedRoad = Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4);
+			Road firstRoad = roadSystem.GetFirstRoad();
+
+			REQUIRE(firstRoad.Length() == expectedRoad.Length());
+
+			THEN("Return the First Traffic Light correctly")
+			{
+				CHECK(firstRoad.GetFirstTrafficLight().GetPosition().GetX() == expectedRoad.GetFirstTrafficLight().GetPosition().GetX());
+				CHECK(firstRoad.GetFirstTrafficLight().GetPosition().GetY() == expectedRoad.GetFirstTrafficLight().GetPosition().GetY());
+			}
+		}
+	}
 }
