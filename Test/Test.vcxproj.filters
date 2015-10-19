@@ -26,7 +26,7 @@
     <ClCompile Include="TestRunner\TestRunner.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RoadSystem\RoadSystemShould.cpp">
+    <ClCompile Include="RoadSystemTest\RoadSystemShould.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

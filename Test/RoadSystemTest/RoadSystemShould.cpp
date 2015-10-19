@@ -1,5 +1,3 @@
-#include "../TestRunner/TestRunner.hpp"
-
 
 /**
 	A Traffic System which is composed of 4 roads.
@@ -103,15 +101,22 @@
 */
 
 
+#include "../TestRunner/catch.hpp"
+#include <RoadSystem/RoadSystem.h>
+#include <RoadSystem/Road.h>
+#include <RoadSystem/TrafficLight.h>
+#include <RoadSystem/Position.h>
+
+
 SCENARIO("Road System Should")
 {
 	GIVEN("The road system")
 	{
-		RoadSystem roadSystem = RoadSystem()
-								.WithFirstRoad	(Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4))
-								.WithSecondRoad	(Road().From(0, 9).To(13, 9).WithFirstTrafficLightIn(3, 9).WithSecondTrafficLight(8, 9))
-								.WithThirdRoad	(Road().From(4, 0).To(4, 13).WithFirstTrafficLightIn(4, 3).WithSecondTrafficLight(4, 8))
-								.WithFourthRoad	(Road().From(9, 0).To(9, 13).WithFirstTrafficLightIn(9, 3).WithSecondTrafficLight(9, 8));
+		RoadSystem roadSystem = RoadSystem().build()
+								.WithFirstRoad	(Road().build().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4))
+								.WithSecondRoad	(Road().build().From(0, 9).To(13, 9).WithFirstTrafficLightIn(3, 9).WithSecondTrafficLight(8, 9))
+								.WithThirdRoad	(Road().build().From(4, 0).To(4, 13).WithFirstTrafficLightIn(4, 3).WithSecondTrafficLight(4, 8))
+								.WithFourthRoad	(Road().build().From(9, 0).To(9, 13).WithFirstTrafficLightIn(9, 3).WithSecondTrafficLight(9, 8));
 	
 
 		WHEN("The first road has the expected length")
@@ -123,8 +128,8 @@ SCENARIO("Road System Should")
 
 			THEN("Return the First Traffic Light correctly")
 			{
-				CHECK(firstRoad.GetFirstTrafficLight().GetPosition().GetX() == expectedRoad.GetFirstTrafficLight().GetPosition().GetX());
-				CHECK(firstRoad.GetFirstTrafficLight().GetPosition().GetY() == expectedRoad.GetFirstTrafficLight().GetPosition().GetY());
+				CHECK(firstRoad.GetFirstTrafficLight().GetPosition() == expectedRoad.GetFirstTrafficLight().GetPosition());
+				CHECK(firstRoad.GetFirstTrafficLight().GetPosition() == expectedRoad.GetFirstTrafficLight().GetPosition());
 			}
 		}
 	}

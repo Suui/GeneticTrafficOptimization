@@ -78,6 +78,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Exceptions\NotImplementedException.h" />
+    <ClInclude Include="RoadSystem\Position.h" />
+    <ClInclude Include="RoadSystem\Road.h" />
+    <ClInclude Include="RoadSystem\RoadSystem.h" />
+    <ClInclude Include="RoadSystem\TrafficLight.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RoadSystem\Position.cpp" />
+    <ClCompile Include="RoadSystem\Road.cpp" />
+    <ClCompile Include="RoadSystem\RoadSystem.cpp" />
+    <ClCompile Include="RoadSystem\TrafficLight.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
