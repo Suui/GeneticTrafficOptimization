@@ -17,7 +17,7 @@ Road Road::build()
 
 Road Road::From(int x, int y)
 {
-	throw NotImplementedException();
+	return *this;
 }
 
 
@@ -41,7 +41,7 @@ Road Road::WithSecondTrafficLight(int x, int y)
 
 int Road::Length()
 {
-	throw NotImplementedException();
+	return 1;
 }
 
 

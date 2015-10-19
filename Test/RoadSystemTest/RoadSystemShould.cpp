@@ -134,3 +134,18 @@ SCENARIO("Road System Should")
 		}
 	}
 }
+
+
+SCENARIO("Road Should")
+{
+	GIVEN("A builder that stops at the From function")
+	{
+		Road testRoad = Road().From(0, 4);
+
+		THEN("return a length of 1")
+		{
+			CHECK(testRoad.Length() == 1);
+		}
+	}
+
+}
