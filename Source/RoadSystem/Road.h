@@ -4,11 +4,11 @@
 #include <unordered_map>
 
 
-class TrafficLight;
-
 class Road
 {
 	std::unordered_map<Position, Cell> road;
+	Position firtTrafficLightPosition, secondTrafficLightPosition;
+
 
 public:
 
@@ -26,5 +26,6 @@ public:
 	
 	int Length();
 
-	TrafficLight GetFirstTrafficLight();
+	Position GetFirstTrafficLightPosition();
+
 };

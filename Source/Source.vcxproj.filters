@@ -24,9 +24,6 @@
     <ClCompile Include="RoadSystem\Road.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RoadSystem\TrafficLight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RoadSystem\Position.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,6 +34,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Cells\ExitCell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cells\TrafficLightCell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,9 +50,6 @@
     <ClInclude Include="Exceptions\NotImplementedException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RoadSystem\TrafficLight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RoadSystem\Position.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -63,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cells\ExitCell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cells\TrafficLightCell.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

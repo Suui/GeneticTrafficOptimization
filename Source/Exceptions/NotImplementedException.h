@@ -7,7 +7,7 @@ class NotImplementedException : public std::exception
 
 public:
 
-	NotImplementedException(const char * error = "Functionality not yet implemented!")
+	NotImplementedException(const char * error = "Not implemented exception")
 	{
 		errorMessage = error;
 	}

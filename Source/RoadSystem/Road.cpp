@@ -1,8 +1,8 @@
 ﻿#include "Road.h"
-#include "TrafficLight.h"
 #include "../Exceptions/NotImplementedException.h"
 #include "../Cells/EntryCell.h"
 #include "../Cells/ExitCell.h"
+#include "../Cells/TrafficLightCell.h"
 
 
 Road::Road()
@@ -41,7 +41,10 @@ Road Road::To(int x, int y)
 
 Road Road::WithFirstTrafficLightIn(int x, int y)
 {
-	throw NotImplementedException();
+	firtTrafficLightPosition = Position(x, y);
+	road[firtTrafficLightPosition] = TrafficLightCell();
+	
+	return *this;
 }
 
 
@@ -57,7 +60,10 @@ int Road::Length()
 }
 
 
-TrafficLight Road::GetFirstTrafficLight()
+Position Road::GetFirstTrafficLightPosition()
+{
+	return firtTrafficLightPosition;
+}
 {
 	throw NotImplementedException();
 }

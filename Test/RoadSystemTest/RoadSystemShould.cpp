@@ -104,7 +104,6 @@
 #include "../TestRunner/catch.hpp"
 #include <RoadSystem/RoadSystem.h>
 #include <RoadSystem/Road.h>
-#include <RoadSystem/TrafficLight.h>
 #include <RoadSystem/Position.h>
 
 
@@ -128,8 +127,8 @@ SCENARIO("Road System Should")
 
 			THEN("Return the First Traffic Light correctly")
 			{
-				CHECK(firstRoad.GetFirstTrafficLight().GetPosition() == expectedRoad.GetFirstTrafficLight().GetPosition());
-				CHECK(firstRoad.GetFirstTrafficLight().GetPosition() == expectedRoad.GetFirstTrafficLight().GetPosition());
+				CHECK(firstRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
+				CHECK(firstRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
 			}
 		}
 	}
@@ -155,6 +154,17 @@ SCENARIO("Road Should")
 		THEN("return the correct length")
 		{
 			CHECK(testRoad.Length() == 14);
+		}
+	}
+
+	GIVEN("A builder that stops at the WithFirstTrafficLight function")
+	{
+		Road testRoad = Road().build().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4);
+		REQUIRE(testRoad.Length() == 14);
+
+		THEN("return the first Traffic Light at the correct position")
+		{
+			CHECK(testRoad.GetFirstTrafficLightPosition() == Position(3, 4));
 		}
 	}
 

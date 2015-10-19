@@ -4,6 +4,8 @@
 
 struct Position
 {
+	Position() { x = 0; y = 0; }
+
 	Position(int x, int y) : x(x), y(y) {}
 
 	friend bool operator==(const Position& a, const Position& b) { return a.x == b.x && a.y == b.y; }
@@ -16,7 +18,7 @@ struct Position
 
 private:
 
-	const unsigned int x, y;
+	int x, y;
 };
 
 
