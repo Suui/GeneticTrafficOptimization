@@ -85,6 +85,7 @@
     <ClInclude Include="TestRunner\hippomocks.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="RoadSystemTest\RoadShould.cpp" />
     <ClCompile Include="TestRunner\TestRunner.hpp" />
     <ClCompile Include="RoadSystemTest\RoadSystemShould.cpp" />
   </ItemGroup>
