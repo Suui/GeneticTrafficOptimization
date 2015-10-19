@@ -23,10 +23,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="xxxShould.cpp">
+    <ClCompile Include="TestRunner\TestRunner.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestRunner\TestRunner.hpp">
+    <ClCompile Include="RoadSystem\RoadSystemShould.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

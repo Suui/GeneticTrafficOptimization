@@ -83,7 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestRunner\TestRunner.hpp" />
-    <ClCompile Include="xxxShould.cpp" />
+    <ClCompile Include="RoadSystem\RoadSystemShould.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
