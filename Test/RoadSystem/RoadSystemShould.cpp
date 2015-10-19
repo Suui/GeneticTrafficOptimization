@@ -73,7 +73,36 @@
 */
 
 
-TEST_CASE("Road System Should")
+/**
+	TODO list.
+	- We need 4 roads which are mixed.
+	- We need 4 pairs of Traffic Lights.
+	- We want to get the different roads with getters.
+	- It's important that the cells where the roads cross belong to both roads.
+	- The structure we'll be following is a hashmap that simulates an array without
+	  the unnecessary cells.
+	- The structure created is [not flexible].
+
+	Possible Tests.
+	- GetFirstRoad		=> { (0, 4) .. (13, 4) }
+	- GetSecondRoad		=> { (0, 9) .. (13, 9) }
+	- GetThirdRoad		=> { (4, 0) .. (4, 13) }
+	- GetFourthRoad		=> { (9, 0) .. (9, 13) }
+	
+	- GetFullRoadSystem =>
+
+	- GetFirstTrafficLightPair		=>	(3, 4) && (4, 3)
+	- GetSecondTrafficLightPair		=>	(8, 4) && (9, 3)
+	- GetThirdTrafficLightPair		=>	(3, 9) && (4, 8)
+	- GetFourthTrafficLightPair		=>	(8, 9) && (9, 8)
+
+	- GetFirstRoad().GetQueue()
+	- GetFirstRoad().GetNumberOfVehiclesWhoLeftTheRoad()
+	- GetFirstRoad().GetFirstTrafficLight()
+
+*/
+
+
 {
 
 }
