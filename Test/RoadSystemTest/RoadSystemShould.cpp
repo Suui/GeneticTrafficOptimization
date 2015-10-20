@@ -132,4 +132,18 @@ SCENARIO("Road System Should")
 			}
 		}
 	}
+
+	GIVEN("The that stops at the WithFirstRoad function")
+	{
+		RoadSystem roadSystem = RoadSystem().build()
+								.WithFirstRoad	(Road().build().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4));
+
+		WHEN("The first road has the expected length")
+		{
+			Road expectedRoad = Road().build().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4);
+			Road firstRoad = roadSystem.GetFirstRoad();
+
+			REQUIRE(firstRoad.Length() == expectedRoad.Length());
+		}
+	}
 }

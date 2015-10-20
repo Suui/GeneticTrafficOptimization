@@ -1900,7 +1900,7 @@ class CompositeGenerator {
 public:
     CompositeGenerator() : m_totalSize( 0 ) {}
 
-    // *** Move semantics, similar to auto_ptr ***
+    // *** Move semantics, similar to unique_ptr ***
     CompositeGenerator( CompositeGenerator& other )
     :   m_fileInfo( other.m_fileInfo ),
         m_totalSize( 0 )
@@ -3765,11 +3765,11 @@ namespace Clara {
             }
         };
 
-        // NOTE: std::auto_ptr is deprecated in c++11/c++0x
+        // NOTE: std::unique_ptr is deprecated in c++11/c++0x
 #if defined(__cplusplus) && __cplusplus > 199711L
         typedef std::unique_ptr<Arg> ArgAutoPtr;
 #else
-        typedef std::auto_ptr<Arg> ArgAutoPtr;
+        typedef std::unique_ptr<Arg> ArgAutoPtr;
 #endif
 
         friend void addOptName( Arg& arg, std::string const& optName )

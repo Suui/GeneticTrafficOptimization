@@ -2,11 +2,12 @@
 #include "Position.h"
 #include "../Cells/Cell.h"
 #include <map>
+#include <memory>
 
 
 class Road
 {
-	std::map<Position, Cell> road;
+	std::map<Position, std::unique_ptr<Cell>> road;
 	
 	Position firtTrafficLightPosition, 
 			 secondTrafficLightPosition,
@@ -36,4 +37,10 @@ public:
 	Position GetEntryCellPosition();
 	
 	Position GetExitCellPosition();
+	
+	std::unique_ptr<Cell> operator[](Position pos) { return std::move(road[pos]); }
+
+	std::map<Position, std::unique_ptr<Cell>>::iterator Begin();
+	
+	std::map<Position, std::unique_ptr<Cell>>::iterator End();
 };

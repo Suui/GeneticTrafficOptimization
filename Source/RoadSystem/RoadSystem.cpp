@@ -17,7 +17,20 @@ RoadSystem RoadSystem::build()
 
 RoadSystem RoadSystem::WithFirstRoad(Road road)
 {
-	throw NotImplementedException();
+	firstRoad = road;
+	for (auto it = firstRoad.Begin(); it != firstRoad.End(); ++it)
+	{
+		//roadSystem[it->first] = *it->second.get();
+		//firstRoad[it->first].release();
+		//firstRoad[it->first] = std::unique_ptr<Cell>(&roadSystem[it->first]);
+	}
+
+	for (auto it = roadSystem.begin(); it != roadSystem.end(); ++it)
+	{
+		
+	}
+
+	return *this;
 }
 
 
@@ -41,5 +54,5 @@ RoadSystem RoadSystem::WithFourthRoad(Road road)
 
 Road RoadSystem::GetFirstRoad()
 {
-	throw NotImplementedException();
+	return firstRoad;
 }

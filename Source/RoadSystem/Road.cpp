@@ -1,8 +1,8 @@
 ﻿#include "Road.h"
-#include "../Exceptions/NotImplementedException.h"
 #include "../Cells/EntryCell.h"
 #include "../Cells/ExitCell.h"
 #include "../Cells/TrafficLightCell.h"
+#include <memory>
 
 
 Road::Road()
@@ -20,7 +20,7 @@ Road Road::build()
 Road Road::From(int x, int y)
 {
 	entryCellPosition = Position(x, y);
-	road[entryCellPosition] = EntryCell();
+	road[entryCellPosition] = std::make_unique<EntryCell>();
 
 	return *this;
 }
@@ -31,11 +31,11 @@ Road Road::To(int x, int y)
 	for (int i = entryCellPosition.GetX(); i <= x; i++)
 	{
 		for (int j = entryCellPosition.GetY(); j <= y; j++)
-			road[Position(i, j)] = Cell();
+			road[Position(i, j)] = std::make_unique<Cell>();
 	}
 
 	exitCellPosition = Position(x, y);
-	road[exitCellPosition] = ExitCell();
+	road[exitCellPosition] = std::make_unique<ExitCell>();
 
 	return *this;
 }
@@ -44,7 +44,7 @@ Road Road::To(int x, int y)
 Road Road::WithFirstTrafficLightIn(int x, int y)
 {
 	firtTrafficLightPosition = Position(x, y);
-	road[firtTrafficLightPosition] = TrafficLightCell();
+	road[firtTrafficLightPosition] = std::make_unique<TrafficLightCell>();
 	
 	return *this;
 }
@@ -53,7 +53,7 @@ Road Road::WithFirstTrafficLightIn(int x, int y)
 Road Road::WithSecondTrafficLight(int x, int y)
 {
 	secondTrafficLightPosition = Position(x, y);
-	road[secondTrafficLightPosition] = TrafficLightCell();
+	road[secondTrafficLightPosition] = std::make_unique<TrafficLightCell>();
 
 	return *this;
 }
@@ -85,4 +85,16 @@ Position Road::GetEntryCellPosition()
 Position Road::GetExitCellPosition()
 {
 	return exitCellPosition;
+}
+
+
+std::map<Position, std::unique_ptr<Cell>>::iterator Road::Begin()
+{
+	return road.begin();
+}
+
+
+std::map<Position, std::unique_ptr<Cell>>::iterator Road::End()
+{
+	return road.end();
 }

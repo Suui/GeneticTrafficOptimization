@@ -1,10 +1,14 @@
 ﻿#pragma once
+#include "Position.h"
+#include "../Cells/Cell.h"
+#include <map>
+#include "Road.h"
 
-
-class Road;
 
 class RoadSystem
 {
+	std::map<Position, Cell> roadSystem;
+	Road firstRoad;
 
 
 public:
