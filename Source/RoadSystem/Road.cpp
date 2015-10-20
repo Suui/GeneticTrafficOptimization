@@ -28,11 +28,9 @@ Road Road::From(int x, int y)
 
 Road Road::To(int x, int y)
 {
-	Position firstPos = road.begin()->first;
-
-	for (int i = firstPos.GetX(); i <= x; i++)
+	for (int i = entryCellPosition.GetX(); i <= x; i++)
 	{
-		for (int j = firstPos.GetY(); j <= y; j++)
+		for (int j = entryCellPosition.GetY(); j <= y; j++)
 			road[Position(i, j)] = Cell();
 	}
 
