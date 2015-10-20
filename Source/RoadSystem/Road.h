@@ -7,8 +7,11 @@
 class Road
 {
 	std::unordered_map<Position, Cell> road;
-	Position firtTrafficLightPosition, secondTrafficLightPosition;
-
+	
+	Position firtTrafficLightPosition, 
+			 secondTrafficLightPosition,
+			 entryCellPosition,
+			 exitCellPosition;
 
 public:
 
@@ -29,4 +32,8 @@ public:
 	Position GetFirstTrafficLightPosition();
 
 	Position GetSecondTrafficLightPosition();
+	
+	Position GetEntryCellPosition();
+	
+	Position GetExitCellPosition();
 };

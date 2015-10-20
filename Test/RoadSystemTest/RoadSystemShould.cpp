@@ -125,10 +125,10 @@ SCENARIO("Road System Should")
 
 			REQUIRE(firstRoad.Length() == expectedRoad.Length());
 
-			THEN("Return the First Traffic Light correctly")
+			THEN("Returns the Traffic Lights correctly")
 			{
 				CHECK(firstRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
-				CHECK(firstRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
+				CHECK(firstRoad.GetSecondTrafficLightPosition() == expectedRoad.GetSecondTrafficLightPosition());
 			}
 		}
 	}

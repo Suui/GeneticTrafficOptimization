@@ -45,5 +45,11 @@ TEST_CASE("Road Should")
 			CHECK(testRoad.GetFirstTrafficLightPosition() == Position(3, 4));
 			CHECK(testRoad.GetSecondTrafficLightPosition() == Position(8, 4));
 		}
+
+		THEN("return the Entry Cell and the Exit Cell positions")
+		{
+			CHECK(testRoad.GetEntryCellPosition() == Position(0, 4));
+			CHECK(testRoad.GetExitCellPosition() == Position(13, 4));
+		}
 	}
 }

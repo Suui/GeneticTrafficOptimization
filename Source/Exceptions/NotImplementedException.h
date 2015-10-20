@@ -12,7 +12,6 @@ public:
 		errorMessage = error;
 	}
 
-
 	const char* what() const override
 	{
 		return errorMessage.c_str();

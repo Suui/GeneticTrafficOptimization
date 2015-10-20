@@ -19,7 +19,9 @@ Road Road::build()
 
 Road Road::From(int x, int y)
 {
-	road[Position(x, y)] = EntryCell();
+	entryCellPosition = Position(x, y);
+	road[entryCellPosition] = EntryCell();
+
 	return *this;
 }
 
@@ -34,7 +36,9 @@ Road Road::To(int x, int y)
 			road[Position(i, j)] = Cell();
 	}
 
-	road[Position(x, y)] = ExitCell();
+	exitCellPosition = Position(x, y);
+	road[exitCellPosition] = ExitCell();
+
 	return *this;
 }
 
@@ -71,4 +75,16 @@ Position Road::GetFirstTrafficLightPosition()
 Position Road::GetSecondTrafficLightPosition()
 {
 	return secondTrafficLightPosition;
+}
+
+
+Position Road::GetEntryCellPosition()
+{
+	return entryCellPosition;
+}
+
+
+Position Road::GetExitCellPosition()
+{
+	return exitCellPosition;
 }
