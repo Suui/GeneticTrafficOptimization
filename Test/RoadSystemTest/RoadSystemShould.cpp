@@ -155,4 +155,28 @@ SCENARIO("Road System Should")
 			}
 		}
 	}
+
+	GIVEN("The a road system that stops at the WithSecondRoad function")
+	{
+		RoadSystem roadSystem = RoadSystem()
+								.WithFirstRoad(Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4))
+								.WithSecondRoad(Road().From(0, 9).To(13, 9).WithFirstTrafficLightIn(3, 9).WithSecondTrafficLight(8, 9));
+
+		WHEN("The second road has the expected length")
+		{
+			Road expectedRoad = Road().From(0, 9).To(13, 9).WithFirstTrafficLightIn(3, 9).WithSecondTrafficLight(8, 9);
+			Road secondRoad = roadSystem.GetSecondRoad();
+
+			REQUIRE(secondRoad.Length() == expectedRoad.Length());
+
+			THEN("Returns the second road key Cell positions correctly")
+			{
+				CHECK(secondRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
+				CHECK(secondRoad.GetSecondTrafficLightPosition() == expectedRoad.GetSecondTrafficLightPosition());
+
+				CHECK(secondRoad.GetEntryCellPosition() == expectedRoad.GetEntryCellPosition());
+				CHECK(secondRoad.GetExitCellPosition() == expectedRoad.GetExitCellPosition());
+			}
+		}
+	}
 }

@@ -18,7 +18,14 @@ RoadSystem& RoadSystem::WithFirstRoad(Road& road)
 
 RoadSystem& RoadSystem::WithSecondRoad(Road& road)
 {
-	throw NotImplementedException();
+	secondRoad = road;
+	for (auto it = road.Begin(); it != road.End(); ++it)
+	{
+		roadSystem.insert(std::make_pair(it->first, *it->second));
+		secondRoad[it->first] = std::make_shared<Cell>(roadSystem[it->first]);
+	}
+
+	return *this;
 }
 
 

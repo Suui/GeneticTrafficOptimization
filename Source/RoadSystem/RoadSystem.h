@@ -8,7 +8,7 @@
 class RoadSystem
 {
 	std::map<Position, Cell> roadSystem;
-	Road firstRoad;
+	Road firstRoad, secondRoad;
 
 
 public:
@@ -24,4 +24,6 @@ public:
 	RoadSystem& WithFourthRoad(Road& road);
 
 	Road GetFirstRoad() { return firstRoad; }
+
+	Road GetSecondRoad() { return secondRoad; }
 };
