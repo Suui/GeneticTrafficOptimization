@@ -145,7 +145,7 @@ SCENARIO("Road System Should")
 
 			REQUIRE(firstRoad.Length() == expectedRoad.Length());
 
-			THEN("Returns the key Cell positions correctly")
+			THEN("Returns the first road key Cell positions correctly")
 			{
 				CHECK(firstRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
 				CHECK(firstRoad.GetSecondTrafficLightPosition() == expectedRoad.GetSecondTrafficLightPosition());
