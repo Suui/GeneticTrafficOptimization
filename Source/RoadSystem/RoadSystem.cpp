@@ -34,11 +34,6 @@ RoadSystem& RoadSystem::WithThirdRoad(Road& road)
 	thirdRoad = road;
 	for (auto it = road.Begin(); it != road.End(); ++it)
 	{
-		if (roadSystem.find(it->first) != roadSystem.end())
-		{
-			//thirdRoad[it->first] = std::make_shared<Cell>(roadSystem[it->first]);
-			continue;
-		}
 		roadSystem.insert(std::make_pair(it->first, *it->second));
 		thirdRoad[it->first] = std::make_shared<Cell>(roadSystem[it->first]);
 	}
