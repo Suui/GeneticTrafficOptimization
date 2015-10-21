@@ -1,4 +1,5 @@
 ﻿#pragma once
+
 #include "Position.h"
 #include "../Cells/Cell.h"
 #include <map>

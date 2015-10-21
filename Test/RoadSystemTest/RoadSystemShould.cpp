@@ -133,7 +133,7 @@ SCENARIO("Road System Should")
 		}
 	}
 
-	GIVEN("The that stops at the WithFirstRoad function")
+	GIVEN("The a road system that stops at the WithFirstRoad function")
 	{
 		RoadSystem roadSystem = RoadSystem()
 								.WithFirstRoad	(Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4));
@@ -144,6 +144,15 @@ SCENARIO("Road System Should")
 			Road firstRoad = roadSystem.GetFirstRoad();
 
 			REQUIRE(firstRoad.Length() == expectedRoad.Length());
+
+			THEN("Returns the key Cell positions correctly")
+			{
+				CHECK(firstRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
+				CHECK(firstRoad.GetSecondTrafficLightPosition() == expectedRoad.GetSecondTrafficLightPosition());
+
+				CHECK(firstRoad.GetEntryCellPosition() == expectedRoad.GetEntryCellPosition());
+				CHECK(firstRoad.GetExitCellPosition() == expectedRoad.GetExitCellPosition());
+			}
 		}
 	}
 }
