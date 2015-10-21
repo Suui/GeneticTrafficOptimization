@@ -179,4 +179,31 @@ SCENARIO("Road System Should")
 			}
 		}
 	}
+
+	GIVEN("The a road system that stops at the WithThirdRoad function")
+	{
+		RoadSystem roadSystem = RoadSystem()
+								.WithFirstRoad(Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4))
+								.WithSecondRoad(Road().From(0, 9).To(13, 9).WithFirstTrafficLightIn(3, 9).WithSecondTrafficLight(8, 9))
+								.WithThirdRoad(Road().From(4, 0).To(4, 13).WithFirstTrafficLightIn(4, 3).WithSecondTrafficLight(4, 8));
+
+		WHEN("The second road has the expected length")
+		{
+			Road expectedRoad = Road().From(4, 0).To(4, 13).WithFirstTrafficLightIn(4, 3).WithSecondTrafficLight(4, 8);
+			Road thirdRoad = roadSystem.GetThirdRoad();
+
+			REQUIRE(thirdRoad.Length() == expectedRoad.Length());
+			WARN("Use Count for 4, 0 is: " << thirdRoad[Position(4, 0)].use_count());
+			WARN("Use Count for 4, 4 is: " << thirdRoad[Position(4, 4)].use_count());
+
+			THEN("Returns the third road key Cell positions correctly")
+			{
+				CHECK(thirdRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
+				CHECK(thirdRoad.GetSecondTrafficLightPosition() == expectedRoad.GetSecondTrafficLightPosition());
+
+				CHECK(thirdRoad.GetEntryCellPosition() == expectedRoad.GetEntryCellPosition());
+				CHECK(thirdRoad.GetExitCellPosition() == expectedRoad.GetExitCellPosition());
+			}
+		}
+	}
 }

@@ -44,4 +44,6 @@ public:
 	std::map<Position, std::shared_ptr<Cell>>::iterator Begin() { return road.begin(); }
 	
 	std::map<Position, std::shared_ptr<Cell>>::iterator End() { return road.end(); }
+
+	bool find(Position position) { return road.find(position) != road.end() ? true : false; }
 };
