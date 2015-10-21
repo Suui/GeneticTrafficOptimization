@@ -13,17 +13,15 @@ class RoadSystem
 
 public:
 
-	RoadSystem();
+	RoadSystem() {}
 
-	RoadSystem build();
+	RoadSystem& WithFirstRoad(Road road);
 
-	RoadSystem WithFirstRoad(Road road);
+	RoadSystem& WithSecondRoad(Road road);
 
-	RoadSystem WithSecondRoad(Road road);
+	RoadSystem& WithThirdRoad(Road road);
 
-	RoadSystem WithThirdRoad(Road road);
+	RoadSystem& WithFourthRoad(Road road);
 
-	RoadSystem WithFourthRoad(Road road);
-
-	Road GetFirstRoad();
+	Road GetFirstRoad() { return firstRoad; }
 };

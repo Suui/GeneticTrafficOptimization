@@ -7,7 +7,7 @@
 
 class Road
 {
-	std::map<Position, std::unique_ptr<Cell>> road;
+	std::map<Position, std::shared_ptr<Cell>> road;
 	
 	Position firtTrafficLightPosition, 
 			 secondTrafficLightPosition,
@@ -16,31 +16,31 @@ class Road
 
 public:
 
-	Road();
+	Road() {}
 
-	Road build();
+	~Road() {}
 
-	Road From(int x, int y);
+	Road& From(int x, int y);
 	
-	Road To(int x, int y);
+	Road& To(int x, int y);
 
-	Road WithFirstTrafficLightIn(int x, int y);
+	Road& WithFirstTrafficLightIn(int x, int y);
 
-	Road WithSecondTrafficLight(int x, int y);
+	Road& WithSecondTrafficLight(int x, int y);
 	
-	int Length();
+	int Length() { return road.size(); }
 
-	Position GetFirstTrafficLightPosition();
+	Position GetFirstTrafficLightPosition() { return firtTrafficLightPosition; }
 
-	Position GetSecondTrafficLightPosition();
+	Position GetSecondTrafficLightPosition() { return secondTrafficLightPosition; }
 	
-	Position GetEntryCellPosition();
+	Position GetEntryCellPosition() { return entryCellPosition; }
 	
-	Position GetExitCellPosition();
+	Position GetExitCellPosition() { return exitCellPosition; }
 	
-	std::unique_ptr<Cell> operator[](Position pos) { return std::move(road[pos]); }
+	std::shared_ptr<Cell> operator[](Position pos) { return road[pos]; }
 
-	std::map<Position, std::unique_ptr<Cell>>::iterator Begin();
+	std::map<Position, std::shared_ptr<Cell>>::iterator Begin() { return road.begin(); }
 	
-	std::map<Position, std::unique_ptr<Cell>>::iterator End();
+	std::map<Position, std::shared_ptr<Cell>>::iterator End() { return road.end(); }
 };

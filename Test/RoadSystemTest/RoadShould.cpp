@@ -6,7 +6,7 @@ TEST_CASE("Road Should")
 {
 	GIVEN("A builder that stops at the From function")
 	{
-		Road testRoad = Road().build().From(0, 4);
+		Road testRoad = Road().From(0, 4);
 
 		THEN("return a length of 1")
 		{
@@ -16,7 +16,7 @@ TEST_CASE("Road Should")
 
 	GIVEN("A builder that stops at the To function")
 	{
-		Road testRoad = Road().build().From(0, 4).To(13, 4);
+		Road testRoad = Road().From(0, 4).To(13, 4);
 
 		THEN("return the correct length")
 		{
@@ -26,7 +26,7 @@ TEST_CASE("Road Should")
 
 	GIVEN("A builder that stops at the WithFirstTrafficLight function")
 	{
-		Road testRoad = Road().build().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4);
+		Road testRoad = Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4);
 		REQUIRE(testRoad.Length() == 14);
 
 		THEN("return the first Traffic Light at the correct position")
@@ -37,7 +37,7 @@ TEST_CASE("Road Should")
 
 	GIVEN("A builder that stops at the WithSecondTrafficLight function")
 	{
-		Road testRoad = Road().build().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4);
+		Road testRoad = Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4);
 		REQUIRE(testRoad.Length() == 14);
 
 		THEN("return the first and second Traffic Light at the correct positions")
