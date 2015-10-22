@@ -29,7 +29,7 @@ public:
 
 	Road& WithSecondTrafficLight(int x, int y);
 	
-	int Length() { return road.size(); }
+	int Length() const { return road.size(); }
 
 	Position GetFirstTrafficLightPosition() { return firtTrafficLightPosition; }
 
