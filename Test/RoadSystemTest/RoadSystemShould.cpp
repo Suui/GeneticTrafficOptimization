@@ -216,11 +216,12 @@ SCENARIO("Road System Should")
 			.WithThirdRoad(RoadBuilder::BuildThirdRoad())
 			.WithFourthRoad(RoadBuilder::BuildFourthRoad());
 
-		WHEN("The fourth road has the expected length")
+		WHEN("The fourth road and the road system have the expected lengths")
 		{
 			Road expectedRoad = RoadBuilder::BuildFourthRoad();
 			Road fourthRoad = roadSystem.GetFourthRoad();
 
+			REQUIRE(roadSystem.Length() == 52);
 			REQUIRE(fourthRoad.Length() == expectedRoad.Length());
 
 			THEN("Returns the fourth road key Cell positions correctly")
