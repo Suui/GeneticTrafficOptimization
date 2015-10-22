@@ -13,6 +13,8 @@ class RoadSystem
 		 secondRoad, 
 		 thirdRoad;
 
+	void SetupRoadSystemFor(Road& road);
+
 
 public:
 
@@ -21,7 +23,7 @@ public:
 	RoadSystem& WithFirstRoad(Road road);
 
 	RoadSystem& WithSecondRoad(Road road);
-
+	
 	RoadSystem& WithThirdRoad(Road road);
 
 	RoadSystem& WithFourthRoad(Road road);
