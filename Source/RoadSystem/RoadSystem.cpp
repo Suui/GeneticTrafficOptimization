@@ -1,6 +1,5 @@
 ﻿#include "RoadSystem.h"
 #include "Road.h"
-#include "../Exceptions/NotImplementedException.h"
 
 
 RoadSystem& RoadSystem::WithFirstRoad(Road road)
@@ -42,5 +41,8 @@ RoadSystem& RoadSystem::WithThirdRoad(Road road)
 
 RoadSystem& RoadSystem::WithFourthRoad(Road road)
 {
-	throw NotImplementedException();
+	fourthRoad = road;
+	SetupRoadSystemFor(fourthRoad);
+
+	return *this;
 }

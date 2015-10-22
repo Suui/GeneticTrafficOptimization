@@ -12,7 +12,8 @@ class RoadSystem
 	
 	Road firstRoad, 
 		 secondRoad, 
-		 thirdRoad;
+		 thirdRoad,
+		 fourthRoad;
 
 	void SetupRoadSystemFor(Road& road);
 
@@ -34,4 +35,6 @@ public:
 	Road GetSecondRoad() { return secondRoad; }
 
 	Road GetThirdRoad() { return thirdRoad; }
+
+	Road GetFourthRoad() { return fourthRoad; }
 };
