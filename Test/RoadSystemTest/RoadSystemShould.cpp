@@ -163,11 +163,12 @@ SCENARIO("Road System Should")
 								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
 								.WithSecondRoad	(RoadBuilder::BuildSecondRoad());
 
-		WHEN("The second road has the expected length")
+		WHEN("The second road and the road system have the expected lengths")
 		{
 			Road expectedRoad = RoadBuilder::BuildSecondRoad();
 			Road secondRoad = roadSystem.GetSecondRoad();
 
+			REQUIRE(roadSystem.Length() == 28);
 			REQUIRE(secondRoad.Length() == expectedRoad.Length());
 
 			THEN("Returns the second road key Cell positions correctly")
