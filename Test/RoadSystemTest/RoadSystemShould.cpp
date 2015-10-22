@@ -109,29 +109,6 @@
 
 SCENARIO("Road System Should")
 {
-	GIVEN("The road system")
-	{
-		RoadSystem roadSystem = RoadSystem()
-								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
-								.WithSecondRoad	(RoadBuilder::BuildSecondRoad())
-								.WithThirdRoad	(RoadBuilder::BuildThirdRoad())
-								.WithFourthRoad	(RoadBuilder::BuildFourthRoad());
-	
-
-		WHEN("The first road has the expected length")
-		{
-			Road expectedRoad = RoadBuilder::BuildFirstRoad();
-			Road firstRoad = roadSystem.GetFirstRoad();
-
-			REQUIRE(firstRoad.Length() == expectedRoad.Length());
-
-			THEN("Returns the Traffic Lights correctly")
-			{
-				CHECK(firstRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
-				CHECK(firstRoad.GetSecondTrafficLightPosition() == expectedRoad.GetSecondTrafficLightPosition());
-			}
-		}
-	}
 
 	GIVEN("The a road system that stops at the WithFirstRoad function")
 	{
