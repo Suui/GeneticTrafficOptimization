@@ -193,8 +193,6 @@ SCENARIO("Road System Should")
 			Road thirdRoad = roadSystem.GetThirdRoad();
 
 			REQUIRE(thirdRoad.Length() == expectedRoad.Length());
-			WARN("Use Count for 4, 0 is: " << thirdRoad[Position(4, 0)].use_count());
-			WARN("Use Count for 4, 4 is: " << thirdRoad[Position(4, 4)].use_count());
 
 			THEN("Returns the third road key Cell positions correctly")
 			{
