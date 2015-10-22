@@ -3,7 +3,7 @@
 #include "../Exceptions/NotImplementedException.h"
 
 
-RoadSystem& RoadSystem::WithFirstRoad(Road& road)
+RoadSystem& RoadSystem::WithFirstRoad(Road road)
 {
 	firstRoad = road;
 	for (auto it = road.Begin(); it != road.End(); ++it)
@@ -16,7 +16,7 @@ RoadSystem& RoadSystem::WithFirstRoad(Road& road)
 }
 
 
-RoadSystem& RoadSystem::WithSecondRoad(Road& road)
+RoadSystem& RoadSystem::WithSecondRoad(Road road)
 {
 	secondRoad = road;
 	for (auto it = road.Begin(); it != road.End(); ++it)
@@ -29,7 +29,7 @@ RoadSystem& RoadSystem::WithSecondRoad(Road& road)
 }
 
 
-RoadSystem& RoadSystem::WithThirdRoad(Road& road)
+RoadSystem& RoadSystem::WithThirdRoad(Road road)
 {
 	thirdRoad = road;
 	for (auto it = road.Begin(); it != road.End(); ++it)
@@ -42,7 +42,7 @@ RoadSystem& RoadSystem::WithThirdRoad(Road& road)
 }
 
 
-RoadSystem& RoadSystem::WithFourthRoad(Road& road)
+RoadSystem& RoadSystem::WithFourthRoad(Road road)
 {
 	throw NotImplementedException();
 }

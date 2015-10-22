@@ -85,6 +85,7 @@
     <ClInclude Include="Exceptions\NotImplementedException.h" />
     <ClInclude Include="RoadSystem\Position.h" />
     <ClInclude Include="RoadSystem\Road.h" />
+    <ClInclude Include="Builders\RoadBuilder.h" />
     <ClInclude Include="RoadSystem\RoadSystem.h" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +96,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RoadSystem\Position.cpp" />
     <ClCompile Include="RoadSystem\Road.cpp" />
+    <ClCompile Include="Builders\RoadBuilder.cpp" />
     <ClCompile Include="RoadSystem\RoadSystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

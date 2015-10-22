@@ -105,22 +105,22 @@
 #include <RoadSystem/RoadSystem.h>
 #include <RoadSystem/Road.h>
 #include <RoadSystem/Position.h>
-
+#include <Builders/RoadBuilder.h>
 
 SCENARIO("Road System Should")
 {
 	GIVEN("The road system")
 	{
 		RoadSystem roadSystem = RoadSystem()
-								.WithFirstRoad	(Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4))
-								.WithSecondRoad	(Road().From(0, 9).To(13, 9).WithFirstTrafficLightIn(3, 9).WithSecondTrafficLight(8, 9))
-								.WithThirdRoad	(Road().From(4, 0).To(4, 13).WithFirstTrafficLightIn(4, 3).WithSecondTrafficLight(4, 8))
-								.WithFourthRoad	(Road().From(9, 0).To(9, 13).WithFirstTrafficLightIn(9, 3).WithSecondTrafficLight(9, 8));
+								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
+								.WithSecondRoad	(RoadBuilder::BuildSecondRoad())
+								.WithThirdRoad	(RoadBuilder::BuildThirdRoad())
+								.WithFourthRoad	(RoadBuilder::BuildFourthRoad());
 	
 
 		WHEN("The first road has the expected length")
 		{
-			Road expectedRoad = Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4);
+			Road expectedRoad = RoadBuilder::BuildFirstRoad();
 			Road firstRoad = roadSystem.GetFirstRoad();
 
 			REQUIRE(firstRoad.Length() == expectedRoad.Length());
@@ -136,11 +136,11 @@ SCENARIO("Road System Should")
 	GIVEN("The a road system that stops at the WithFirstRoad function")
 	{
 		RoadSystem roadSystem = RoadSystem()
-								.WithFirstRoad	(Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4));
+								.WithFirstRoad	(RoadBuilder::BuildFirstRoad());
 
 		WHEN("The first road has the expected length")
 		{
-			Road expectedRoad = Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4);
+			Road expectedRoad = RoadBuilder::BuildFirstRoad();
 			Road firstRoad = roadSystem.GetFirstRoad();
 
 			REQUIRE(firstRoad.Length() == expectedRoad.Length());
@@ -159,12 +159,12 @@ SCENARIO("Road System Should")
 	GIVEN("The a road system that stops at the WithSecondRoad function")
 	{
 		RoadSystem roadSystem = RoadSystem()
-								.WithFirstRoad(Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4))
-								.WithSecondRoad(Road().From(0, 9).To(13, 9).WithFirstTrafficLightIn(3, 9).WithSecondTrafficLight(8, 9));
+								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
+								.WithSecondRoad	(RoadBuilder::BuildSecondRoad());
 
 		WHEN("The second road has the expected length")
 		{
-			Road expectedRoad = Road().From(0, 9).To(13, 9).WithFirstTrafficLightIn(3, 9).WithSecondTrafficLight(8, 9);
+			Road expectedRoad = RoadBuilder::BuildSecondRoad();
 			Road secondRoad = roadSystem.GetSecondRoad();
 
 			REQUIRE(secondRoad.Length() == expectedRoad.Length());
@@ -183,13 +183,13 @@ SCENARIO("Road System Should")
 	GIVEN("The a road system that stops at the WithThirdRoad function")
 	{
 		RoadSystem roadSystem = RoadSystem()
-								.WithFirstRoad(Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4))
-								.WithSecondRoad(Road().From(0, 9).To(13, 9).WithFirstTrafficLightIn(3, 9).WithSecondTrafficLight(8, 9))
-								.WithThirdRoad(Road().From(4, 0).To(4, 13).WithFirstTrafficLightIn(4, 3).WithSecondTrafficLight(4, 8));
+								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
+								.WithSecondRoad	(RoadBuilder::BuildSecondRoad())
+								.WithThirdRoad	(RoadBuilder::BuildThirdRoad());
 
 		WHEN("The second road has the expected length")
 		{
-			Road expectedRoad = Road().From(4, 0).To(4, 13).WithFirstTrafficLightIn(4, 3).WithSecondTrafficLight(4, 8);
+			Road expectedRoad = RoadBuilder::BuildThirdRoad();
 			Road thirdRoad = roadSystem.GetThirdRoad();
 
 			REQUIRE(thirdRoad.Length() == expectedRoad.Length());

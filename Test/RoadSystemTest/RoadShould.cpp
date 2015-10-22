@@ -1,5 +1,6 @@
 #include "../TestRunner/catch.hpp"
 #include <RoadSystem/Road.h>
+#include <Builders/RoadBuilder.h>
 
 
 TEST_CASE("Road Should")
