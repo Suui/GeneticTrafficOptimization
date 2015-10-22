@@ -105,45 +105,110 @@
 #include <RoadSystem/RoadSystem.h>
 #include <RoadSystem/Road.h>
 #include <RoadSystem/Position.h>
-
+#include <Builders/RoadBuilder.h>
 
 SCENARIO("Road System Should")
 {
-	GIVEN("The road system")
+
+	GIVEN("The a road system that stops at the WithFirstRoad function")
 	{
 		RoadSystem roadSystem = RoadSystem()
-								.WithFirstRoad	(Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4))
-								.WithSecondRoad	(Road().From(0, 9).To(13, 9).WithFirstTrafficLightIn(3, 9).WithSecondTrafficLight(8, 9))
-								.WithThirdRoad	(Road().From(4, 0).To(4, 13).WithFirstTrafficLightIn(4, 3).WithSecondTrafficLight(4, 8))
-								.WithFourthRoad	(Road().From(9, 0).To(9, 13).WithFirstTrafficLightIn(9, 3).WithSecondTrafficLight(9, 8));
-	
+								.WithFirstRoad	(RoadBuilder::BuildFirstRoad());
 
-		WHEN("The first road has the expected length")
+		WHEN("The first road and the road system have the expected lengths")
 		{
-			Road expectedRoad = Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4);
+			Road expectedRoad = RoadBuilder::BuildFirstRoad();
 			Road firstRoad = roadSystem.GetFirstRoad();
 
+			REQUIRE(roadSystem.Length() == 14);
 			REQUIRE(firstRoad.Length() == expectedRoad.Length());
 
-			THEN("Returns the Traffic Lights correctly")
+			THEN("Returns the first road key Cell positions correctly")
 			{
 				CHECK(firstRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
 				CHECK(firstRoad.GetSecondTrafficLightPosition() == expectedRoad.GetSecondTrafficLightPosition());
+
+				CHECK(firstRoad.GetEntryCellPosition() == expectedRoad.GetEntryCellPosition());
+				CHECK(firstRoad.GetExitCellPosition() == expectedRoad.GetExitCellPosition());
 			}
 		}
 	}
 
-	GIVEN("The that stops at the WithFirstRoad function")
+	GIVEN("The a road system that stops at the WithSecondRoad function")
 	{
 		RoadSystem roadSystem = RoadSystem()
-								.WithFirstRoad	(Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4));
+								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
+								.WithSecondRoad	(RoadBuilder::BuildSecondRoad());
 
-		WHEN("The first road has the expected length")
+		WHEN("The second road and the road system have the expected lengths")
 		{
-			Road expectedRoad = Road().From(0, 4).To(13, 4).WithFirstTrafficLightIn(3, 4).WithSecondTrafficLight(8, 4);
-			Road firstRoad = roadSystem.GetFirstRoad();
+			Road expectedRoad = RoadBuilder::BuildSecondRoad();
+			Road secondRoad = roadSystem.GetSecondRoad();
 
-			REQUIRE(firstRoad.Length() == expectedRoad.Length());
+			REQUIRE(roadSystem.Length() == 28);
+			REQUIRE(secondRoad.Length() == expectedRoad.Length());
+
+			THEN("Returns the second road key Cell positions correctly")
+			{
+				CHECK(secondRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
+				CHECK(secondRoad.GetSecondTrafficLightPosition() == expectedRoad.GetSecondTrafficLightPosition());
+
+				CHECK(secondRoad.GetEntryCellPosition() == expectedRoad.GetEntryCellPosition());
+				CHECK(secondRoad.GetExitCellPosition() == expectedRoad.GetExitCellPosition());
+			}
+		}
+	}
+
+	GIVEN("The a road system that stops at the WithThirdRoad function")
+	{
+		RoadSystem roadSystem = RoadSystem()
+								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
+								.WithSecondRoad	(RoadBuilder::BuildSecondRoad())
+								.WithThirdRoad	(RoadBuilder::BuildThirdRoad());
+
+		WHEN("The third road and the road system have the expected lengths")
+		{
+			Road expectedRoad = RoadBuilder::BuildThirdRoad();
+			Road thirdRoad = roadSystem.GetThirdRoad();
+
+			REQUIRE(roadSystem.Length() == 40);
+			REQUIRE(thirdRoad.Length() == expectedRoad.Length());
+
+			THEN("Returns the third road key Cell positions correctly")
+			{
+				CHECK(thirdRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
+				CHECK(thirdRoad.GetSecondTrafficLightPosition() == expectedRoad.GetSecondTrafficLightPosition());
+
+				CHECK(thirdRoad.GetEntryCellPosition() == expectedRoad.GetEntryCellPosition());
+				CHECK(thirdRoad.GetExitCellPosition() == expectedRoad.GetExitCellPosition());
+			}
+		}
+	}
+
+	GIVEN("The a road system that stops at the WithFourth function")
+	{
+		RoadSystem roadSystem = RoadSystem()
+			.WithFirstRoad(RoadBuilder::BuildFirstRoad())
+			.WithSecondRoad(RoadBuilder::BuildSecondRoad())
+			.WithThirdRoad(RoadBuilder::BuildThirdRoad())
+			.WithFourthRoad(RoadBuilder::BuildFourthRoad());
+
+		WHEN("The fourth road and the road system have the expected lengths")
+		{
+			Road expectedRoad = RoadBuilder::BuildFourthRoad();
+			Road fourthRoad = roadSystem.GetFourthRoad();
+
+			REQUIRE(roadSystem.Length() == 52);
+			REQUIRE(fourthRoad.Length() == expectedRoad.Length());
+
+			THEN("Returns the fourth road key Cell positions correctly")
+			{
+				CHECK(fourthRoad.GetFirstTrafficLightPosition() == expectedRoad.GetFirstTrafficLightPosition());
+				CHECK(fourthRoad.GetSecondTrafficLightPosition() == expectedRoad.GetSecondTrafficLightPosition());
+
+				CHECK(fourthRoad.GetEntryCellPosition() == expectedRoad.GetEntryCellPosition());
+				CHECK(fourthRoad.GetExitCellPosition() == expectedRoad.GetExitCellPosition());
+			}
 		}
 	}
 }

@@ -1,14 +1,21 @@
 ﻿#pragma once
+
+#include "Road.h"
 #include "Position.h"
 #include "../Cells/Cell.h"
 #include <map>
-#include "Road.h"
 
 
 class RoadSystem
 {
 	std::map<Position, Cell> roadSystem;
-	Road firstRoad;
+	
+	Road firstRoad, 
+		 secondRoad, 
+		 thirdRoad,
+		 fourthRoad;
+
+	void SetupRoadSystemFor(Road& road);
 
 
 public:
@@ -18,10 +25,18 @@ public:
 	RoadSystem& WithFirstRoad(Road road);
 
 	RoadSystem& WithSecondRoad(Road road);
-
+	
 	RoadSystem& WithThirdRoad(Road road);
 
 	RoadSystem& WithFourthRoad(Road road);
 
 	Road GetFirstRoad() { return firstRoad; }
+
+	Road GetSecondRoad() { return secondRoad; }
+
+	Road GetThirdRoad() { return thirdRoad; }
+
+	Road GetFourthRoad() { return fourthRoad; }
+
+	int Length() const { return roadSystem.size(); }
 };

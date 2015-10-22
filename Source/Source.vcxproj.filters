@@ -39,6 +39,9 @@
     <ClCompile Include="Cells\TrafficLightCell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Builders\RoadBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RoadSystem\RoadSystem.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cells\TrafficLightCell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Builders\RoadBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
