@@ -37,4 +37,6 @@ public:
 	Road GetThirdRoad() { return thirdRoad; }
 
 	Road GetFourthRoad() { return fourthRoad; }
+
+	int Length() const { return roadSystem.size(); }
 };
