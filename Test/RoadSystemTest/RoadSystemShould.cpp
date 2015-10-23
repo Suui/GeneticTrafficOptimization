@@ -211,4 +211,20 @@ SCENARIO("Road System Should")
 			}
 		}
 	}
+
+	GIVEN("The road system with four roads")
+	{
+		RoadSystem roadSystem = RoadSystem()
+								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
+								.WithSecondRoad	(RoadBuilder::BuildSecondRoad())
+								.WithThirdRoad	(RoadBuilder::BuildThirdRoad())
+								.WithFourthRoad	(RoadBuilder::BuildFourthRoad());
+
+		THEN("Set up the 4 Traffic Light Pairs correctly")
+		{
+			roadSystem.SetUpTrafficLightPairs();
+
+			CHECK(roadSystem.GetFirstTrafficLightPair())
+		}
+	}
 }
