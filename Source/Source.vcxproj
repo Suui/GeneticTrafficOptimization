@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Builders\TrafficLightCycleBuilder.h" />
     <ClInclude Include="Cells\Cell.h" />
     <ClInclude Include="Cells\EntryCell.h" />
     <ClInclude Include="Cells\ExitCell.h" />
@@ -87,9 +88,11 @@
     <ClInclude Include="RoadSystem\Road.h" />
     <ClInclude Include="Builders\RoadBuilder.h" />
     <ClInclude Include="RoadSystem\RoadSystem.h" />
+    <ClInclude Include="RoadSystem\TrafficLightCycle.h" />
     <ClInclude Include="RoadSystem\TrafficLightPair.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Builders\TrafficLightCycleBuilder.cpp" />
     <ClCompile Include="Cells\Cell.cpp" />
     <ClCompile Include="Cells\EntryCell.cpp" />
     <ClCompile Include="Cells\ExitCell.cpp" />
@@ -99,6 +102,7 @@
     <ClCompile Include="RoadSystem\Road.cpp" />
     <ClCompile Include="Builders\RoadBuilder.cpp" />
     <ClCompile Include="RoadSystem\RoadSystem.cpp" />
+    <ClCompile Include="RoadSystem\TrafficLightCycle.cpp" />
     <ClCompile Include="RoadSystem\TrafficLightPair.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
