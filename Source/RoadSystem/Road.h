@@ -1,14 +1,12 @@
 ﻿#pragma once
 
 #include "Position.h"
-#include "../Cells/Cell.h"
-#include <map>
-#include <memory>
+#include <vector>
 
 
 class Road
 {
-	std::map<Position, std::shared_ptr<Cell>> road;
+	std::vector<Position> road;
 	
 	Position firtTrafficLightPosition, 
 			 secondTrafficLightPosition,
@@ -38,10 +36,4 @@ public:
 	Position GetEntryCellPosition() { return entryCellPosition; }
 	
 	Position GetExitCellPosition() { return exitCellPosition; }
-	
-	std::shared_ptr<Cell>& operator[](Position pos) { return road[pos]; }
-
-	std::map<Position, std::shared_ptr<Cell>>::iterator Begin() { return road.begin(); }
-	
-	std::map<Position, std::shared_ptr<Cell>>::iterator End() { return road.end(); }
 };
