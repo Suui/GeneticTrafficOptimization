@@ -88,8 +88,8 @@
   <ItemGroup>
     <ClCompile Include="RoadSystemTest\RoadShould.cpp" />
     <ClCompile Include="RoadSystemTest\RoadSystemMock.cpp" />
-    <ClCompile Include="TestRunner\TestRunner.hpp" />
     <ClCompile Include="RoadSystemTest\RoadSystemShould.cpp" />
+    <ClCompile Include="TestRunner\TestRunner.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Source\Source.vcxproj">
