@@ -12,7 +12,7 @@ class RoadSystem
 
 protected:
 
-	std::map<Position, Cell> roadSystem;
+	std::map<Position, std::shared_ptr<Cell>> roadSystem;
 	
 	Road firstRoad, 
 		 secondRoad, 
@@ -22,11 +22,18 @@ protected:
 	TrafficLightPair firstTrafficLightPair,
 					 secondTrafficLightPair,
 					 thirTrafficLightPair,
-					 fourTrafficLightPair;
+					 fourthTrafficLightPair;
 
-	void SetupRoadSystemFor(Road& fieldRoad, Road& road);
+	void SetupRoadSystemFor(Road& road);
 
 	void SetUpFirstTrafficLightPair();
+
+	void SetUpSecondTrafficLightPair();
+
+	void SetUpThirdTrafficLightPair();
+
+	void SetUpFourthTrafficLightPair();
+
 
 public:
 

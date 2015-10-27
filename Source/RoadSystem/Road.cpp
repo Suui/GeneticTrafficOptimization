@@ -14,7 +14,7 @@ Road& Road::To(int x, int y)
 	for (int i = entryCellPosition.GetX(); i <= x; i++)
 	{
 		for (int j = entryCellPosition.GetY(); j <= y; j++)
-			road.push_back(Position(i, j));
+			positions.push_back(Position(i, j));
 	}
 	exitCellPosition = Position(x, y);
 

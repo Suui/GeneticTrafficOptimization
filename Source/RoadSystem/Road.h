@@ -6,18 +6,15 @@
 
 class Road
 {
-	std::vector<Position> road;
+	std::vector<Position> positions;
 	
 	Position firtTrafficLightPosition, 
 			 secondTrafficLightPosition,
 			 entryCellPosition,
 			 exitCellPosition;
 
+
 public:
-
-	Road() {}
-
-	~Road() {}
 
 	Road& From(int x, int y);
 	
@@ -27,7 +24,7 @@ public:
 
 	Road& WithSecondTrafficLight(int x, int y);
 	
-	int Length() const { return road.size(); }
+	const std::vector<Position>& GetPositions() { return positions; }
 
 	Position GetFirstTrafficLightPosition() { return firtTrafficLightPosition; }
 
@@ -36,4 +33,6 @@ public:
 	Position GetEntryCellPosition() { return entryCellPosition; }
 	
 	Position GetExitCellPosition() { return exitCellPosition; }
+
+	int Length() const { return positions.size(); }
 };
