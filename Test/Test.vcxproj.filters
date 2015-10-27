@@ -21,6 +21,9 @@
     <ClInclude Include="TestRunner\hippomocks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RoadSystemTest\RoadSystemMock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestRunner\TestRunner.hpp">
@@ -30,6 +33,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RoadSystemTest\RoadShould.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RoadSystemTest\RoadSystemMock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

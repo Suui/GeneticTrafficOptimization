@@ -39,7 +39,7 @@ public:
 	
 	Position GetExitCellPosition() { return exitCellPosition; }
 	
-	std::shared_ptr<Cell> operator[](Position pos) { return road[pos]; }
+	std::shared_ptr<Cell>& operator[](Position pos) { return road[pos]; }
 
 	std::map<Position, std::shared_ptr<Cell>>::iterator Begin() { return road.begin(); }
 	

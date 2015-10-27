@@ -42,6 +42,9 @@
     <ClCompile Include="Builders\RoadBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RoadSystem\TrafficLightPair.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RoadSystem\RoadSystem.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Builders\RoadBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RoadSystem\TrafficLightPair.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
