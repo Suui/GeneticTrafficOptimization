@@ -81,13 +81,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="RoadSystemTest\RoadSystemMock.h" />
     <ClInclude Include="TestRunner\catch.hpp" />
     <ClInclude Include="TestRunner\hippomocks.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RoadSystemTest\RoadShould.cpp" />
-    <ClCompile Include="TestRunner\TestRunner.hpp" />
+    <ClCompile Include="RoadSystemTest\RoadSystemMock.cpp" />
     <ClCompile Include="RoadSystemTest\RoadSystemShould.cpp" />
+    <ClCompile Include="TestRunner\TestRunner.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Source\Source.vcxproj">

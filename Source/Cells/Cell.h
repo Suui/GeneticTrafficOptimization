@@ -11,4 +11,6 @@ enum CellState
 struct Cell
 {
 	Cell();
+
+	virtual ~Cell() {}
 };

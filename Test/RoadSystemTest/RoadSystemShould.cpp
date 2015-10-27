@@ -90,8 +90,8 @@
 	- GetFullRoadSystem =>
 
 	- GetFirstTrafficLightPair		=>	(3, 4) && (4, 3)
-	- GetSecondTrafficLightPair		=>	(8, 4) && (9, 3)
-	- GetThirdTrafficLightPair		=>	(3, 9) && (4, 8)
+	- GetSecondTrafficLightPair		=>	(3, 9) && (4, 8)
+	- GetThirdTrafficLightPair		=>	(8, 4) && (9, 3)
 	- GetFourthTrafficLightPair		=>	(8, 9) && (9, 8)
 
 	- GetFirstRoad().GetQueue()
@@ -106,13 +106,15 @@
 #include <RoadSystem/Road.h>
 #include <RoadSystem/Position.h>
 #include <Builders/RoadBuilder.h>
+#include "RoadSystemMock.h"
+
 
 SCENARIO("Road System Should")
 {
 
 	GIVEN("The a road system that stops at the WithFirstRoad function")
 	{
-		RoadSystem roadSystem = RoadSystem()
+		RoadSystemMock roadSystem = RoadSystemMock()
 								.WithFirstRoad	(RoadBuilder::BuildFirstRoad());
 
 		WHEN("The first road and the road system have the expected lengths")
@@ -136,7 +138,7 @@ SCENARIO("Road System Should")
 
 	GIVEN("The a road system that stops at the WithSecondRoad function")
 	{
-		RoadSystem roadSystem = RoadSystem()
+		RoadSystemMock roadSystem = RoadSystemMock()
 								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
 								.WithSecondRoad	(RoadBuilder::BuildSecondRoad());
 
@@ -161,7 +163,7 @@ SCENARIO("Road System Should")
 
 	GIVEN("The a road system that stops at the WithThirdRoad function")
 	{
-		RoadSystem roadSystem = RoadSystem()
+		RoadSystemMock roadSystem = RoadSystemMock()
 								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
 								.WithSecondRoad	(RoadBuilder::BuildSecondRoad())
 								.WithThirdRoad	(RoadBuilder::BuildThirdRoad());
@@ -187,11 +189,11 @@ SCENARIO("Road System Should")
 
 	GIVEN("The a road system that stops at the WithFourth function")
 	{
-		RoadSystem roadSystem = RoadSystem()
-			.WithFirstRoad(RoadBuilder::BuildFirstRoad())
-			.WithSecondRoad(RoadBuilder::BuildSecondRoad())
-			.WithThirdRoad(RoadBuilder::BuildThirdRoad())
-			.WithFourthRoad(RoadBuilder::BuildFourthRoad());
+		RoadSystemMock roadSystem = RoadSystemMock()
+								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
+								.WithSecondRoad	(RoadBuilder::BuildSecondRoad())
+								.WithThirdRoad	(RoadBuilder::BuildThirdRoad())
+								.WithFourthRoad	(RoadBuilder::BuildFourthRoad());
 
 		WHEN("The fourth road and the road system have the expected lengths")
 		{
@@ -209,6 +211,23 @@ SCENARIO("Road System Should")
 				CHECK(fourthRoad.GetEntryCellPosition() == expectedRoad.GetEntryCellPosition());
 				CHECK(fourthRoad.GetExitCellPosition() == expectedRoad.GetExitCellPosition());
 			}
+		}
+	}
+
+	GIVEN("The road system with four roads")
+	{
+		RoadSystemMock roadSystem = RoadSystemMock()
+										.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
+										.WithSecondRoad	(RoadBuilder::BuildSecondRoad())
+										.WithThirdRoad	(RoadBuilder::BuildThirdRoad())
+										.WithFourthRoad	(RoadBuilder::BuildFourthRoad());
+
+		THEN("Set up the 4 Traffic Light Pairs correctly")
+		{
+			roadSystem.SetUpTrafficLightPairs();
+
+			Road& firsRoad = roadSystem.GetFirstRoad();
+			CHECK(firsRoad[firsRoad.GetFirstTrafficLightPosition()].use_count() == 3);
 		}
 	}
 }
