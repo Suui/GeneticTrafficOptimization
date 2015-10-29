@@ -8,8 +8,6 @@ class EntryCell : public Cell
 
 public:
 
-	EntryCell() { Cell(); entryQueue = 0; }
-
 	bool isEntryCell() override { return true; }
 	
 	void SetState(CellState& state) override { state == Empty && entryQueue > 0 ? entryQueue -= 1 : this->state = Empty; }
