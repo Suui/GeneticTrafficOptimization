@@ -131,6 +131,13 @@ SCENARIO("Road System Should")
 				CHECK(roadSystem.GetExitedVehicles() == 0);
 			}
 
+			THEN("have 2 vehicles that have exited after 15 simulation steps")
+			{
+				for (int i = 0; i < 14; i++)
+					roadSystem.PerformStep();
+			
+				CHECK(roadSystem.GetExitedVehicles() == 2);
+			}
 		}
 	}
 }
