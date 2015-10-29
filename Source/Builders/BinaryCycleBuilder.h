@@ -10,7 +10,7 @@ class BinaryCycleBuilder
 
 public:
 
-	static std::vector<int> Build();
+	static std::vector<int> BuildWithoutChange();
 
 	static std::vector<int> BuildRandom();
 };

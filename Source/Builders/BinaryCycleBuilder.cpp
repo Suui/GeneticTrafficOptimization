@@ -2,7 +2,7 @@
 #include <ctime>
 
 
-std::vector<int> BinaryCycleBuilder::Build()
+std::vector<int> BinaryCycleBuilder::BuildWithoutChange()
 {
 	return std::vector<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 							  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
