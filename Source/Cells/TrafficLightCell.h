@@ -5,5 +5,7 @@
 
 struct TrafficLightCell : Cell
 {
-	TrafficLightCell();
+	TrafficLightCell() { Cell(); trafficLightState = Red; }
+
+	bool isTrafficLight() override { return true; }
 };
