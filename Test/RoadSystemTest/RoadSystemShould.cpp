@@ -117,27 +117,5 @@ SCENARIO("Road System Should")
 								.WithFourthRoad	(RoadBuilder::BuildFourthRoad());
 		
 		roadSystem.SetUpTrafficLightPairs();
-
-		WHEN("we add vehicles once and Traffic Lights don't change")
-		{
-			roadSystem.SetTrafficLightCycles(BinaryCycleBuilder::BuildWithoutChange());
-			roadSystem.AddVehiclesInEntryCells();
-
-			THEN("have 0 vehicles that have exited after 14 simulation steps")
-			{
-				for (int i = 0; i < 13; i++)
-					roadSystem.PerformStep();
-
-				CHECK(roadSystem.GetExitedVehicles() == 0);
-			}
-
-			THEN("have 2 vehicles that have exited after 15 simulation steps")
-			{
-				for (int i = 0; i < 14; i++)
-					roadSystem.PerformStep();
-			
-				CHECK(roadSystem.GetExitedVehicles() == 2);
-			}
-		}
 	}
 }

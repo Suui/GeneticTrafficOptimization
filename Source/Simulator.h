@@ -6,7 +6,7 @@
 class Simulator
 {
 	RoadSystem roadSystem;
-	const int SIMULATION_LENGTH = 7200;
+	int SIMULATION_STEPS = 7200;
 
 
 public:
@@ -14,4 +14,10 @@ public:
 	Simulator();
 
 	void Simulate();
+
+	void SetTrafficLightCycles(std::vector<int> binaryCycle) { roadSystem.SetTrafficLightCycles(binaryCycle); }
+
+	void SetSimulationSteps(int simulationSteps) { SIMULATION_STEPS = simulationSteps; }
+
+	int GetExitedVehicles() { return roadSystem.GetExitedVehicles(); }
 };

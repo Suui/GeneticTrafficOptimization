@@ -29,5 +29,8 @@
     <ClCompile Include="RoadSystemTest\RoadSystemShould.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RoadSystemTest\SimulatorShould.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

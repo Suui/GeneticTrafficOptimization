@@ -18,10 +18,9 @@ Simulator::Simulator()
 
 void Simulator::Simulate()
 {
-	for (int i = 0; i < SIMULATION_LENGTH; ++i)
+	for (int i = 0; i < SIMULATION_STEPS; ++i)
 	{
 		if (i % 5 == 0) roadSystem.AddVehiclesInEntryCells();
 		roadSystem.PerformStep();
 	}
-	
 }

@@ -59,7 +59,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Source\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Position.obj;Cell.obj;EntryCell.obj;ExitCell.obj;TrafficLightCell.obj;Road.obj;RoadSystem.obj;RoadBuilder.obj;BinaryCycleBuilder.obj;BinaryCycleParser.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Position.obj;Cell.obj;EntryCell.obj;ExitCell.obj;TrafficLightCell.obj;Road.obj;RoadSystem.obj;RoadBuilder.obj;BinaryCycleBuilder.obj;BinaryCycleParser.obj;Simulator.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RoadSystemTest\RoadSystemShould.cpp" />
+    <ClCompile Include="RoadSystemTest\SimulatorShould.cpp" />
     <ClCompile Include="TestRunner\TestRunner.hpp" />
   </ItemGroup>
   <ItemGroup>
