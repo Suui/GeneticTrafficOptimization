@@ -33,7 +33,7 @@ public:
 
 	virtual CellState& GetState() { return state; }
 
-	virtual void SetState(CellState& state) { this->state = state; }
+	virtual void SetState(CellState state) { this->state = state; }
 
 	virtual bool isEntryCell() { return false; }
 
@@ -47,5 +47,5 @@ public:
 
 	virtual TrafficLightState& GetTrafficLightState() { return trafficLightState; };
 
-	virtual void SetTrafficLightState(TrafficLightState& trafficLightState) { this->trafficLightState = trafficLightState; }
+	virtual void SetTrafficLightState(TrafficLightState trafficLightState) { this->trafficLightState = trafficLightState; }
 };
