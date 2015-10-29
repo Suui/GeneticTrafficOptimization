@@ -34,6 +34,8 @@ protected:
 
 	void SetUpFourthTrafficLightPair();
 
+	void AdvanceVehiclesInRoad(Road& road);
+
 
 public:
 
@@ -51,5 +53,9 @@ public:
 
 	void SetTrafficLightCycles(std::vector<int> binaryCycle);
 	
-	void IncludeVehiclesInEntryCells();
+	void PerformStep();
+
+	void AddVehiclesInEntryCells();
+
+	int GetExitedVehicles();
 };

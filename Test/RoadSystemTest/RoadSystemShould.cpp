@@ -106,9 +106,9 @@
 #include <Builders/BinaryCycleBuilder.h>
 
 
-TEST_CASE("Road System Should")
+SCENARIO("Road System Should")
 {
-	SECTION("be constructed correctly")
+	GIVEN("a Road System that doesn't change Traffic Light colors")
 	{
 		RoadSystem roadSystem = RoadSystem()
 								.WithFirstRoad	(RoadBuilder::BuildFirstRoad())
@@ -118,5 +118,18 @@ TEST_CASE("Road System Should")
 		
 		roadSystem.SetUpTrafficLightPairs();
 		roadSystem.SetTrafficLightCycles(BinaryCycleBuilder::Build());
+
+		THEN("have 0 vehicles that have exited after 14 simulation steps")
+		{
+			roadSystem.AddVehiclesInEntryCells();
+
+			for (int i = 0; i < 14; i++)
+			{
+				int checkPoint = roadSystem.GetExitedVehicles();
+				roadSystem.PerformStep();
+			}
+
+			CHECK(roadSystem.GetExitedVehicles() == 0);
+		}
 	}
 }

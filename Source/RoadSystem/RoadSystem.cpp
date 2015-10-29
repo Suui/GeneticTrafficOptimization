@@ -6,12 +6,60 @@
 #include "../Parsers/BinaryCycleParser.h"
 
 
-void RoadSystem::IncludeVehiclesInEntryCells()
+void RoadSystem::PerformStep()
+{
+	AdvanceVehiclesInRoad(firstRoad);
+	AdvanceVehiclesInRoad(secondRoad);
+	AdvanceVehiclesInRoad(thirdRoad);
+	AdvanceVehiclesInRoad(fourthRoad);
+}
+
+
+void RoadSystem::AdvanceVehiclesInRoad(Road& road)
+{
+	std::vector<Position> positions = road.GetPositions();
+
+	roadSystem[road.GetExitCellPosition()]->VehicleExit();
+
+	Position currentPos, lastPos;
+	for (int i = positions.size() - 2; i >= 0; i--)
+	{
+		currentPos = positions[i];
+		lastPos = positions[i + 1];
+
+		if (roadSystem[currentPos]->GetState() == Empty) continue;
+
+		if (roadSystem[currentPos]->GetTrafficLightState() == Red) continue;
+
+		if (roadSystem[lastPos]->IsOccupied()) continue;
+		
+		if (road.GetDirection() == Vertical && roadSystem[currentPos]->GetState() == HorizontallyOccupied) continue;
+		
+		if (road.GetDirection() == Horizontal && roadSystem[currentPos]->GetState() == VerticallyOccupied) continue;
+
+		road.GetDirection() == Vertical ? roadSystem[lastPos]->SetState(VerticallyOccupied) 
+			                            : roadSystem[lastPos]->SetState(HorizontallyOccupied);
+		
+		roadSystem[currentPos]->SetState(Empty);
+	}
+}
+
+
+void RoadSystem::AddVehiclesInEntryCells()
 {
 	roadSystem[firstRoad.GetEntryCellPosition()]->AddVehicle();
 	roadSystem[secondRoad.GetEntryCellPosition()]->AddVehicle();
 	roadSystem[thirdRoad.GetEntryCellPosition()]->AddVehicle();
 	roadSystem[fourthRoad.GetEntryCellPosition()]->AddVehicle();
+}
+
+
+int RoadSystem::GetExitedVehicles()
+{
+	return roadSystem[firstRoad.GetExitCellPosition()]->GetExitCount()
+		 + roadSystem[secondRoad.GetExitCellPosition()]->GetExitCount()
+		 + roadSystem[thirdRoad.GetExitCellPosition()]->GetExitCount()
+		 + roadSystem[fourthRoad.GetExitCellPosition()]->GetExitCount();
 }
 
 
@@ -54,12 +102,12 @@ RoadSystem& RoadSystem::WithFourthRoad(Road road)
 void RoadSystem::SetupRoadSystemFor(Road& road)
 {
 	for (Position pos : road.GetPositions())
-		roadSystem[pos] = std::make_shared<Cell>();
+		roadSystem[pos] = std::make_shared<Cell>(road.GetDirection());
 
-	roadSystem[road.GetEntryCellPosition()] = std::make_shared<EntryCell>();
-	roadSystem[road.GetExitCellPosition()] = std::make_shared<ExitCell>();
-	roadSystem[road.GetFirstTrafficLightPosition()] = std::make_shared<TrafficLightCell>();
-	roadSystem[road.GetSecondTrafficLightPosition()] = std::make_shared<TrafficLightCell>();
+	roadSystem[road.GetEntryCellPosition()] = std::make_shared<EntryCell>(road.GetDirection());
+	roadSystem[road.GetExitCellPosition()] = std::make_shared<ExitCell>(road.GetDirection());
+	roadSystem[road.GetFirstTrafficLightPosition()] = std::make_shared<TrafficLightCell>(road.GetDirection());
+	roadSystem[road.GetSecondTrafficLightPosition()] = std::make_shared<TrafficLightCell>(road.GetDirection());
 }
 
 

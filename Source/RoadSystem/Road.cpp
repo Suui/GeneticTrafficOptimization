@@ -36,3 +36,11 @@ Road& Road::WithSecondTrafficLight(int x, int y)
 
 	return *this;
 }
+
+
+Road& Road::WithDirection(Direction direction)
+{
+	this->direction = direction;
+
+	return *this;
+}

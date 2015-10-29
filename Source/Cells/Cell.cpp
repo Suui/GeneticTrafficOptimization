@@ -1,10 +1,10 @@
 ﻿#include "Cell.h"
 
 
-Cell::Cell()
+Cell::Cell(Direction direction) : direction(direction)
 {
 	state = Empty;
-	trafficLightState = Red;
+	trafficLightState = Green;
 	entryQueue = 0;
 	exitCount = 0;
 }

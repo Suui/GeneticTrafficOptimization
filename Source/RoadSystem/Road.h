@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "Position.h"
+#include "../Cells/Cell.h"
 #include <vector>
 
 
@@ -13,6 +14,8 @@ class Road
 			 entryCellPosition,
 			 exitCellPosition;
 
+	Direction direction;
+
 
 public:
 
@@ -23,6 +26,8 @@ public:
 	Road& WithFirstTrafficLightIn(int x, int y);
 
 	Road& WithSecondTrafficLight(int x, int y);
+
+	Road& WithDirection(Direction direction);
 	
 	const std::vector<Position>& GetPositions() { return positions; }
 
@@ -33,6 +38,8 @@ public:
 	Position GetEntryCellPosition() { return entryCellPosition; }
 	
 	Position GetExitCellPosition() { return exitCellPosition; }
+
+	Direction GetDirection() { return direction; }
 
 	int Length() const { return positions.size(); }
 };

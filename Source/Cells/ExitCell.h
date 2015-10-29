@@ -8,11 +8,13 @@ class ExitCell : public Cell
 
 public:
 
+	ExitCell(Direction direction) : Cell(direction) {}
+
 	bool isExitCell() override { return true; }
 
 	void VehicleExit() override
 	{
-		if (state == Occupied)
+		if (IsOccupied())
 		{
 			exitCount += 1;
 			state = Empty;
