@@ -31,5 +31,29 @@ SCENARIO("Simulator should")
 				CHECK(simulator.GetExitedVehicles() == 2);
 			}
 		}
+
+		WHEN("we perform 18 simulation steps and Traffic Lights don't change")
+		{
+			simulator.SetSimulationSteps(18);
+			simulator.SetTrafficLightCycles(BinaryCycleBuilder::BuildWithoutChange());
+
+			THEN("have 2 vehicles that have exited after 15 simulation steps")
+			{
+				simulator.Simulate();
+				CHECK(simulator.GetExitedVehicles() == 2);
+			}
+		}
+
+		WHEN("we perform 18 simulation steps and Traffic Lights don't change")
+		{
+			simulator.SetSimulationSteps(19);
+			simulator.SetTrafficLightCycles(BinaryCycleBuilder::BuildWithoutChange());
+
+			THEN("have 2 vehicles that have exited after 15 simulation steps")
+			{
+				simulator.Simulate();
+				CHECK(simulator.GetExitedVehicles() == 4);
+			}
+		}
 	}
 }
