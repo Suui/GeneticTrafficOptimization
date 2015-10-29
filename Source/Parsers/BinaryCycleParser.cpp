@@ -1,7 +1,7 @@
-#include "TrafficLightCycleParser.h"
+#include "BinaryCycleParser.h"
 
 
-TrafficLightCycleParser::TrafficLightCycleParser(std::vector<int>& binaryCycle)
+BinaryCycleParser::BinaryCycleParser(std::vector<int>& binaryCycle)
 {
 	first	= std::vector<int>(binaryCycle.begin() + 00, binaryCycle.begin() + 12);
 	second	= std::vector<int>(binaryCycle.begin() + 12, binaryCycle.begin() + 24);

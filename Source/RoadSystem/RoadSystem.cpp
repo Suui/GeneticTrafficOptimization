@@ -3,7 +3,7 @@
 #include "../Cells/EntryCell.h"
 #include "../Cells/ExitCell.h"
 #include "../Cells/TrafficLightCell.h"
-#include "../Parsers/TrafficLightCycleParser.h"
+#include "../Parsers/BinaryCycleParser.h"
 
 
 RoadSystem& RoadSystem::WithFirstRoad(Road road)
@@ -63,9 +63,14 @@ void RoadSystem::SetUpTrafficLightPairs()
 }
 
 
-void RoadSystem::SetTrafficLightCycles(TrafficLightCycle cycle)
+void RoadSystem::SetTrafficLightCycles(std::vector<int> binaryCycle)
 {
-	TrafficLightCycleParser parser = TrafficLightCycleParser(cycle.GetBinaryCycle());
+	BinaryCycleParser parser = BinaryCycleParser(binaryCycle);
+
+	firstTrafficLightPair.SetBinaryCycle(parser.GetFirst());
+	secondTrafficLightPair.SetBinaryCycle(parser.GetSecond());
+	thirTrafficLightPair.SetBinaryCycle(parser.GetThird());
+	fourthTrafficLightPair.SetBinaryCycle(parser.GetFourth());
 }
 
 

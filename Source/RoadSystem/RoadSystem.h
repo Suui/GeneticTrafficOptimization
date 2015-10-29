@@ -49,5 +49,5 @@ public:
 
 	void SetUpTrafficLightPairs();
 
-	void SetTrafficLightCycles(TrafficLightCycle cycle);
+	void SetTrafficLightCycles(std::vector<int> binaryCycle);
 };

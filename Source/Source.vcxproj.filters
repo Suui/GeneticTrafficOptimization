@@ -45,13 +45,10 @@
     <ClCompile Include="RoadSystem\TrafficLightPair.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RoadSystem\TrafficLightCycle.cpp">
+    <ClCompile Include="Builders\BinaryCycleBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Builders\TrafficLightCycleBuilder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Parsers\TrafficLightCycleParser.cpp">
+    <ClCompile Include="Parsers\BinaryCycleParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,13 +83,10 @@
     <ClInclude Include="RoadSystem\TrafficLightPair.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RoadSystem\TrafficLightCycle.h">
+    <ClInclude Include="Builders\BinaryCycleBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Builders\TrafficLightCycleBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Parsers\TrafficLightCycleParser.h">
+    <ClInclude Include="Parsers\BinaryCycleParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

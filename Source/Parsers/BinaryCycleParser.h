@@ -2,14 +2,14 @@
 #include <vector>
 
 
-class TrafficLightCycleParser
+class BinaryCycleParser
 {
 	std::vector<int> first, second, third, fourth;
 
 
 public:
 
-	TrafficLightCycleParser(std::vector<int>& binaryCycle);
+	BinaryCycleParser(std::vector<int>& binaryCycle);
 
 	const std::vector<int>& GetFirst() const { return first; }
 
