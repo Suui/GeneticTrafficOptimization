@@ -50,4 +50,6 @@ public:
 	void SetUpTrafficLightPairs();
 
 	void SetTrafficLightCycles(std::vector<int> binaryCycle);
+	
+	void IncludeVehiclesInEntryCells();
 };

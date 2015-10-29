@@ -6,6 +6,15 @@
 #include "../Parsers/BinaryCycleParser.h"
 
 
+void RoadSystem::IncludeVehiclesInEntryCells()
+{
+	roadSystem[firstRoad.GetEntryCellPosition()]->AddVehicle();
+	roadSystem[secondRoad.GetEntryCellPosition()]->AddVehicle();
+	roadSystem[thirdRoad.GetEntryCellPosition()]->AddVehicle();
+	roadSystem[fourthRoad.GetEntryCellPosition()]->AddVehicle();
+}
+
+
 RoadSystem& RoadSystem::WithFirstRoad(Road road)
 {
 	firstRoad = road;

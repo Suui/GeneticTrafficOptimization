@@ -90,6 +90,7 @@
     <ClInclude Include="RoadSystem\RoadSystem.h" />
     <ClInclude Include="RoadSystem\TrafficLightPair.h" />
     <ClInclude Include="Parsers\BinaryCycleParser.h" />
+    <ClInclude Include="Simulator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Builders\BinaryCycleBuilder.cpp" />
@@ -104,6 +105,7 @@
     <ClCompile Include="RoadSystem\RoadSystem.cpp" />
     <ClCompile Include="RoadSystem\TrafficLightPair.cpp" />
     <ClCompile Include="Parsers\BinaryCycleParser.cpp" />
+    <ClCompile Include="Simulator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
