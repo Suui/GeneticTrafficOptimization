@@ -1,17 +1,20 @@
 ﻿#pragma once
-#include "../Cells/TrafficLightCell.h"
+
+#include "../Cells/Cell.h"
+#include "TrafficLightCycle.h"
 #include <memory>
 
 
 class TrafficLightPair
 {
-	std::shared_ptr<TrafficLightCell> first;
-	std::shared_ptr<TrafficLightCell> second;
+	std::shared_ptr<Cell> first;
+	std::shared_ptr<Cell> second;
+	TrafficLightCycle cycle;
 
 
 public:
 
 	TrafficLightPair() {};
 
-	TrafficLightPair(const std::shared_ptr<TrafficLightCell>& first, const std::shared_ptr<TrafficLightCell>& second) : first(first), second(second) {}
+	TrafficLightPair(const std::shared_ptr<Cell>& first, const std::shared_ptr<Cell>& second) : first(first), second(second) {}
 };
