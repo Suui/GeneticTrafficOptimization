@@ -1,6 +1,6 @@
 ﻿
 /**
-	A Traffic System which is composed of 4 roads.
+	A Traffic System which is composed of 4 roads. [OK]
 	- Two vertical ones and two horizontal ones.
 	
 			       1         2
@@ -23,10 +23,10 @@
 	- Each road has 14 cells or fields.
 	- Each road has two traffic lights, at index 3 and 8.
 	
-	The traffic lights are arranged by pairs.
+	The traffic lights are arranged by pairs. [OK]
 	- Road 1 @[3] && Road 3 @[3]
-	- Road 1 @[8] && Road 4 @[3]
 	- Road 2 @[3] && Road 3 @[8]
+	- Road 1 @[8] && Road 4 @[3]
 	- Road 2 @[8] && Road 4 @[8]
 	- When one is green, the other is red. No orange light is supported.
 	
@@ -75,11 +75,10 @@
 	TODO list.
 	- We need 4 roads which are mixed.
 	- We need 4 pairs of Traffic Lights.
-	- We want to get the different roads with getters.
 	- It's important that the cells where the roads cross belong to both roads.
-	- The structure we'll be following is a hashmap that simulates an array without
+	- The structure we'll be following is a hashmap that simulates an 2D array without
 	  the unnecessary cells.
-	- The structure created is [not flexible].
+	- The structure created is [NOT FLEXIBLE].
 	
 	Possible Tests.
 	- GetFirstRoad		=> { (0, 4) .. (13, 4) }
