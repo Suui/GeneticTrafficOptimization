@@ -3,7 +3,10 @@
 #include "Cell.h"
 
 
-struct TrafficLightCell : Cell
+class TrafficLightCell : public Cell
 {
-	TrafficLightCell();
+
+public:
+
+	bool isTrafficLight() override { return true; }
 };

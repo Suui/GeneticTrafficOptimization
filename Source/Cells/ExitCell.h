@@ -3,7 +3,19 @@
 #include "Cell.h"
 
 
-struct ExitCell : Cell
+class ExitCell : public Cell
 {
-	ExitCell();
+
+public:
+
+	bool isExitCell() override { return true; }
+
+	void VehicleExit() override
+	{
+		if (state == Occupied)
+		{
+			exitCount += 1;
+			state = Empty;
+		}
+	}
 };

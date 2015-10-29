@@ -59,7 +59,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Source\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Position.obj;Cell.obj;EntryCell.obj;ExitCell.obj;TrafficLightCell.obj;Road.obj;RoadSystem.obj;RoadBuilder.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Position.obj;Cell.obj;EntryCell.obj;ExitCell.obj;TrafficLightCell.obj;Road.obj;RoadSystem.obj;RoadBuilder.obj;TrafficLightCycle.obj;TrafficLightCycleBuilder.obj;TrafficLightCycleParser.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -81,13 +81,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="RoadSystemTest\RoadSystemMock.h" />
     <ClInclude Include="TestRunner\catch.hpp" />
     <ClInclude Include="TestRunner\hippomocks.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RoadSystemTest\RoadShould.cpp" />
-    <ClCompile Include="RoadSystemTest\RoadSystemMock.cpp" />
     <ClCompile Include="RoadSystemTest\RoadSystemShould.cpp" />
     <ClCompile Include="TestRunner\TestRunner.hpp" />
   </ItemGroup>
