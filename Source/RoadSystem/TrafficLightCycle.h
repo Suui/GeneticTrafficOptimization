@@ -13,4 +13,6 @@ public:
 	TrafficLightCycle() {}
 
 	explicit TrafficLightCycle(const std::vector<int>& binaryCycle);
+	
+	std::vector<int>& GetBinaryCycle() { return binaryCycle; }
 };

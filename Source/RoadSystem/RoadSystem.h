@@ -48,4 +48,6 @@ public:
 	virtual RoadSystem& WithFourthRoad(Road road);
 
 	void SetUpTrafficLightPairs();
+
+	void SetTrafficLightCycles(TrafficLightCycle cycle);
 };

@@ -103,6 +103,7 @@
 #include "../TestRunner/catch.hpp"
 #include <RoadSystem/RoadSystem.h>
 #include <Builders/RoadBuilder.h>
+#include <Builders/TrafficLightCycleBuilder.h>
 
 
 TEST_CASE("Road System Should")
@@ -116,5 +117,6 @@ TEST_CASE("Road System Should")
 								.WithFourthRoad	(RoadBuilder::BuildFourthRoad());
 		
 		roadSystem.SetUpTrafficLightPairs();
+		roadSystem.SetTrafficLightCycles(TrafficLightCycleBuilder::Build());
 	}
 }
