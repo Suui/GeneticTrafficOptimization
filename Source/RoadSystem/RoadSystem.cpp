@@ -54,6 +54,24 @@ void RoadSystem::AddVehiclesInEntryCells()
 }
 
 
+void RoadSystem::UpdateTrafficLights()
+{
+	firstTrafficLightPair.UpdateState();
+	secondTrafficLightPair.UpdateState();
+	thirdTrafficLightPair.UpdateState();
+	fourthTrafficLightPair.UpdateState();
+}
+
+
+void RoadSystem::ResetExitedVehicles()
+{
+	roadSystem[firstRoad.GetExitCellPosition()]->ResetExitCout();
+	roadSystem[secondRoad.GetExitCellPosition()]->ResetExitCout();
+	roadSystem[thirdRoad.GetExitCellPosition()]->ResetExitCout();
+	roadSystem[fourthRoad.GetExitCellPosition()]->ResetExitCout();
+}
+
+
 int RoadSystem::GetExitedVehicles()
 {
 	return roadSystem[firstRoad.GetExitCellPosition()]->GetExitCount()
@@ -126,7 +144,7 @@ void RoadSystem::SetTrafficLightCycles(std::vector<int> binaryCycle)
 
 	firstTrafficLightPair.SetBinaryCycle(parser.GetFirst());
 	secondTrafficLightPair.SetBinaryCycle(parser.GetSecond());
-	thirTrafficLightPair.SetBinaryCycle(parser.GetThird());
+	thirdTrafficLightPair.SetBinaryCycle(parser.GetThird());
 	fourthTrafficLightPair.SetBinaryCycle(parser.GetFourth());
 }
 
@@ -145,7 +163,7 @@ void RoadSystem::SetUpSecondTrafficLightPair()
 
 void RoadSystem::SetUpThirdTrafficLightPair()
 {
-	thirTrafficLightPair = TrafficLightPair(roadSystem[firstRoad.GetSecondTrafficLightPosition()], roadSystem[fourthRoad.GetFirstTrafficLightPosition()]);
+	thirdTrafficLightPair = TrafficLightPair(roadSystem[firstRoad.GetSecondTrafficLightPosition()], roadSystem[fourthRoad.GetFirstTrafficLightPosition()]);
 }
 
 

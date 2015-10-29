@@ -21,6 +21,7 @@ void Simulator::Simulate()
 	for (int i = 0; i < SIMULATION_STEPS; ++i)
 	{
 		if (i % 5 == 0) roadSystem.AddVehiclesInEntryCells();
+		if (i % 10 == 0) roadSystem.UpdateTrafficLights();
 		roadSystem.PerformStep();
 	}
 }

@@ -20,4 +20,6 @@ public:
 	void SetSimulationSteps(int simulationSteps) { SIMULATION_STEPS = simulationSteps; }
 
 	int GetExitedVehicles() { return roadSystem.GetExitedVehicles(); }
+
+	void ResetExitedVehicles() { roadSystem.ResetExitedVehicles(); }
 };

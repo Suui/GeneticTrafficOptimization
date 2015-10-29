@@ -20,4 +20,6 @@ public:
 			state = Empty;
 		}
 	}
+
+	void ResetExitCout() override { exitCount = 0; }
 };

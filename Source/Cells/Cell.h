@@ -63,4 +63,6 @@ public:
 	int GetExitCount() { return exitCount; }
 
 	virtual void SetTrafficLightState(TrafficLightState trafficLightState) { this->trafficLightState = trafficLightState; }
+
+	virtual void ResetExitCout() {}
 };

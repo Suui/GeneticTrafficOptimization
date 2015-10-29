@@ -21,7 +21,7 @@ protected:
 
 	TrafficLightPair firstTrafficLightPair,
 					 secondTrafficLightPair,
-					 thirTrafficLightPair,
+					 thirdTrafficLightPair,
 					 fourthTrafficLightPair;
 
 	void SetupRoadSystemFor(Road& road);
@@ -56,6 +56,10 @@ public:
 	void PerformStep();
 
 	void AddVehiclesInEntryCells();
+	
+	void UpdateTrafficLights();
 
+	void ResetExitedVehicles();
+	
 	int GetExitedVehicles();
 };
