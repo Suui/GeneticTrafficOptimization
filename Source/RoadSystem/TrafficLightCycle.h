@@ -1,4 +1,5 @@
 ﻿#pragma once
+
 #include <vector>
 
 
@@ -8,6 +9,8 @@ class TrafficLightCycle
 
 
 public:
+
+	TrafficLightCycle() {}
 
 	explicit TrafficLightCycle(const std::vector<int>& binaryCycle);
 };
