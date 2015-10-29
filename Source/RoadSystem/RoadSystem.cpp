@@ -2,6 +2,7 @@
 #include "Road.h"
 #include "../Cells/EntryCell.h"
 #include "../Cells/ExitCell.h"
+#include "../Cells/TrafficLightCell.h"
 
 
 RoadSystem& RoadSystem::WithFirstRoad(Road road)
@@ -63,39 +64,23 @@ void RoadSystem::SetUpTrafficLightPairs()
 
 void RoadSystem::SetUpFirstTrafficLightPair()
 {
-	std::shared_ptr<TrafficLightCell> first = std::dynamic_pointer_cast<TrafficLightCell>(roadSystem[firstRoad.GetFirstTrafficLightPosition()]);
-	std::shared_ptr<TrafficLightCell> second = std::dynamic_pointer_cast<TrafficLightCell>(roadSystem[thirdRoad.GetFirstTrafficLightPosition()]);
-
-	if (first && second)
-		firstTrafficLightPair = TrafficLightPair(first, second);
+	firstTrafficLightPair = TrafficLightPair(roadSystem[firstRoad.GetFirstTrafficLightPosition()], roadSystem[thirdRoad.GetFirstTrafficLightPosition()]);
 }
 
 
 void RoadSystem::SetUpSecondTrafficLightPair()
 {
-	std::shared_ptr<TrafficLightCell> first = std::dynamic_pointer_cast<TrafficLightCell>(roadSystem[secondRoad.GetFirstTrafficLightPosition()]);
-	std::shared_ptr<TrafficLightCell> second = std::dynamic_pointer_cast<TrafficLightCell>(roadSystem[thirdRoad.GetSecondTrafficLightPosition()]);
-
-	if (first && second)
-		secondTrafficLightPair = TrafficLightPair(first, second);
+	secondTrafficLightPair = TrafficLightPair(roadSystem[secondRoad.GetFirstTrafficLightPosition()], roadSystem[thirdRoad.GetSecondTrafficLightPosition()]);
 }
 
 
 void RoadSystem::SetUpThirdTrafficLightPair()
 {
-	std::shared_ptr<TrafficLightCell> first = std::dynamic_pointer_cast<TrafficLightCell>(roadSystem[firstRoad.GetSecondTrafficLightPosition()]);
-	std::shared_ptr<TrafficLightCell> second = std::dynamic_pointer_cast<TrafficLightCell>(roadSystem[fourthRoad.GetFirstTrafficLightPosition()]);
-
-	if (first && second)
-		thirTrafficLightPair = TrafficLightPair(first, second);
+	thirTrafficLightPair = TrafficLightPair(roadSystem[firstRoad.GetSecondTrafficLightPosition()], roadSystem[fourthRoad.GetFirstTrafficLightPosition()]);
 }
 
 
 void RoadSystem::SetUpFourthTrafficLightPair()
 {
-	std::shared_ptr<TrafficLightCell> first = std::dynamic_pointer_cast<TrafficLightCell>(roadSystem[secondRoad.GetSecondTrafficLightPosition()]);
-	std::shared_ptr<TrafficLightCell> second = std::dynamic_pointer_cast<TrafficLightCell>(roadSystem[fourthRoad.GetSecondTrafficLightPosition()]);
-
-	if (first && second)
-		fourthTrafficLightPair = TrafficLightPair(first, second);
+	fourthTrafficLightPair = TrafficLightPair(roadSystem[secondRoad.GetSecondTrafficLightPosition()], roadSystem[fourthRoad.GetSecondTrafficLightPosition()]);
 }
