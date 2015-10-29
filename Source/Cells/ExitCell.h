@@ -3,11 +3,10 @@
 #include "Cell.h"
 
 
-class ExitCell : Cell
+class ExitCell : public Cell
 {
-public:
 
-	ExitCell() { Cell(); exitCount = 0; }
+public:
 
 	bool isExitCell() override { return true; }
 

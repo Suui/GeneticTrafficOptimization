@@ -3,7 +3,7 @@
 #include "Cell.h"
 
 
-class EntryCell : Cell
+class EntryCell : public Cell
 {
 
 public:

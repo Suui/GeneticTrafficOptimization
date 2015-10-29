@@ -27,9 +27,9 @@ protected:
 
 public:
 
-	Cell() { state = Empty; }
+	Cell();
 
-	virtual ~Cell();
+	virtual ~Cell() {}
 
 	virtual CellState& GetState() { return state; }
 
