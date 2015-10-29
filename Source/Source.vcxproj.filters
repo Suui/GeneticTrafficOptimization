@@ -51,7 +51,7 @@
     <ClCompile Include="Builders\TrafficLightCycleBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TrafficLightCycleParser.cpp">
+    <ClCompile Include="Parsers\TrafficLightCycleParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -92,7 +92,7 @@
     <ClInclude Include="Builders\TrafficLightCycleBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TrafficLightCycleParser.h">
+    <ClInclude Include="Parsers\TrafficLightCycleParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

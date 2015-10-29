@@ -3,7 +3,7 @@
 #include "../Cells/EntryCell.h"
 #include "../Cells/ExitCell.h"
 #include "../Cells/TrafficLightCell.h"
-#include "../TrafficLightCycleParser.h"
+#include "../Parsers/TrafficLightCycleParser.h"
 
 
 RoadSystem& RoadSystem::WithFirstRoad(Road road)
