@@ -84,6 +84,7 @@
     <ClInclude Include="Cells\ExitCell.h" />
     <ClInclude Include="Cells\TrafficLightCell.h" />
     <ClInclude Include="Exceptions\NotImplementedException.h" />
+    <ClInclude Include="Math.h" />
     <ClInclude Include="RoadSystem\Position.h" />
     <ClInclude Include="RoadSystem\Road.h" />
     <ClInclude Include="Builders\RoadBuilder.h" />
@@ -100,6 +101,7 @@
     <ClCompile Include="Cells\ExitCell.cpp" />
     <ClCompile Include="Cells\TrafficLightCell.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Math.cpp" />
     <ClCompile Include="RoadSystem\Position.cpp" />
     <ClCompile Include="RoadSystem\Road.cpp" />
     <ClCompile Include="Builders\RoadBuilder.cpp" />

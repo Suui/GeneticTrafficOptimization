@@ -19,7 +19,7 @@ int main()
 	for (int i = 0; i < tournamentPoolSize; i++)
 	{
 		Math::SetRandomSeed();
-		int randomIndex = rand() % possibleBinaryCycles.size();
+		int randomIndex = Math::RandomExclusive(possibleBinaryCycles.size());
 		simulator.SetTrafficLightCycles(possibleBinaryCycles[randomIndex]);
 
 		simulator.Simulate();
