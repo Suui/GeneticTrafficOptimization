@@ -1,13 +1,7 @@
 #include "Simulator.h"
 #include <iostream>
 #include "Builders/BinaryCycleBuilder.h"
-#include <ctime>
-
-
-void SetRandomSeed()
-{
-	srand(static_cast<unsigned int>(rand() ^ time(nullptr)));
-}
+#include "Math.h"
 
 
 int main()
@@ -24,7 +18,7 @@ int main()
 	int bestFitness = 0, fitness;
 	for (int i = 0; i < tournamentPoolSize; i++)
 	{
-		SetRandomSeed();
+		Math::SetRandomSeed();
 		int randomIndex = rand() % possibleBinaryCycles.size();
 		simulator.SetTrafficLightCycles(possibleBinaryCycles[randomIndex]);
 
