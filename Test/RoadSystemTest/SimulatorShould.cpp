@@ -1,6 +1,7 @@
 ﻿#include "../TestRunner/catch.hpp"
-#include <Simulator.h>
 #include <Builders/BinaryCycleBuilder.h>
+#include <Simulation/Simulator.h>
+
 
 SCENARIO("Simulator should")
 {

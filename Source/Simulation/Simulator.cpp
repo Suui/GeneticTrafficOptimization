@@ -1,6 +1,6 @@
 ﻿#include "Simulator.h"
-#include "Builders/RoadBuilder.h"
-#include "Builders/BinaryCycleBuilder.h"
+#include "../Builders/RoadBuilder.h"
+#include "../Builders/BinaryCycleBuilder.h"
 
 
 Simulator::Simulator()
