@@ -52,6 +52,10 @@ public:
 
 	Direction GetDirection() { return direction; }
 
+	std::shared_ptr<Vehicle>& GetVehicle() { return vehicle; }
+
+	void SetVehicle(std::shared_ptr<Vehicle>& vehicle) { this->vehicle = vehicle; }
+
 	virtual bool isEntryCell() { return false; }
 
 	virtual void AddVehicle() {}
