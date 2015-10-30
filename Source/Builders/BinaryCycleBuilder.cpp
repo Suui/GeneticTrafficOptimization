@@ -11,6 +11,15 @@ std::vector<int> BinaryCycleBuilder::BuildWithoutChange()
 }
 
 
+std::vector<int> BinaryCycleBuilder::BuildChangingAllTheTime()
+{
+	return std::vector<int> { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+							  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+							  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+							  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, };
+}
+
+
 std::vector<int> BinaryCycleBuilder::BuildRandom()
 {
 	std::vector<int> binaryCycle;
