@@ -9,3 +9,6 @@ Cell::Cell(Direction direction) : direction(direction)
 	exitCount = 0;
 	vehicle = nullptr;
 }
+
+
+int Cell::vehicleID = 0;
