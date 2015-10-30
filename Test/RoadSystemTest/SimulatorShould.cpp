@@ -16,7 +16,7 @@ SCENARIO("Simulator should")
 			THEN("have 0 vehicles that have exited")
 			{
 				simulator.Simulate();
-				CHECK(simulator.GetExitedVehicles() == 0);
+				CHECK(simulator.GetExitedVehiclesForLastSimulation() == 0);
 			}
 		}
 
@@ -28,7 +28,7 @@ SCENARIO("Simulator should")
 			THEN("have 2 vehicles that have exited after 15 simulation steps")
 			{
 				simulator.Simulate();
-				CHECK(simulator.GetExitedVehicles() == 2);
+				CHECK(simulator.GetExitedVehiclesForLastSimulation() == 2);
 			}
 		}
 
@@ -40,7 +40,7 @@ SCENARIO("Simulator should")
 			THEN("have 2 vehicles that have exited after 15 simulation steps")
 			{
 				simulator.Simulate();
-				CHECK(simulator.GetExitedVehicles() == 2);
+				CHECK(simulator.GetExitedVehiclesForLastSimulation() == 2);
 			}
 		}
 
@@ -52,7 +52,7 @@ SCENARIO("Simulator should")
 			THEN("have 2 vehicles that have exited after 15 simulation steps")
 			{
 				simulator.Simulate();
-				CHECK(simulator.GetExitedVehicles() == 4);
+				CHECK(simulator.GetExitedVehiclesForLastSimulation() == 4);
 			}
 		}
 	}

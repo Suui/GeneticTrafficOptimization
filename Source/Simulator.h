@@ -7,6 +7,7 @@ class Simulator
 {
 	RoadSystem roadSystem;
 	int SIMULATION_STEPS = 7200;
+	int exitedVehiclesForLastSimulation = 0;
 
 
 public:
@@ -19,7 +20,5 @@ public:
 
 	void SetSimulationSteps(int simulationSteps) { SIMULATION_STEPS = simulationSteps; }
 
-	int GetExitedVehicles() { return roadSystem.GetExitedVehicles(); }
-
-	void ResetExitedVehicles() { roadSystem.ResetExitedVehicles(); }
+	int GetExitedVehiclesForLastSimulation() { return exitedVehiclesForLastSimulation; }
 };
