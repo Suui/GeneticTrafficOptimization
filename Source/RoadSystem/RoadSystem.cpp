@@ -27,6 +27,8 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 		currentPos = positions[i];
 		lastPos = positions[i + 1];
 
+		roadSystem[currentPos]->AddVehicleMovement(0);
+
 		if (roadSystem[currentPos]->GetState() == Empty) continue;
 
 		if (roadSystem[currentPos]->GetTrafficLightState() == Red) continue;

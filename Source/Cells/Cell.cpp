@@ -7,4 +7,5 @@ Cell::Cell(Direction direction) : direction(direction)
 	trafficLightState = Green;
 	entryQueue = 0;
 	exitCount = 0;
+	vehicle = nullptr;
 }

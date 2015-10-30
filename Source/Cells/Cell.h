@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include "../ParetoData/Vehicle.h"
+#include <memory>
 
 
 enum CellState
@@ -32,6 +34,7 @@ protected:
 	TrafficLightState trafficLightState;
 	Direction direction;
 	int entryQueue, exitCount;
+	std::shared_ptr<Vehicle> vehicle;
 
 
 public:
@@ -65,4 +68,6 @@ public:
 	virtual void SetTrafficLightState(TrafficLightState trafficLightState) { this->trafficLightState = trafficLightState; }
 
 	virtual void ResetExitCout() {}
+
+	void AddVehicleMovement(int movement) {  if (vehicle) vehicle->AddMovement(movement); }
 };
