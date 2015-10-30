@@ -53,10 +53,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)Source\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Position.obj;Cell.obj;EntryCell.obj;ExitCell.obj;TrafficLightCell.obj;Road.obj;RoadSystem.obj;RoadBuilder.obj;TrafficLightPair.obj;BinaryCycleBuilder.obj;BinaryCycleParser.obj;Simulator.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -78,6 +81,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="TestRunner\catch.hpp" />
+    <ClInclude Include="TestRunner\hippomocks.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RoadSystemTest\RoadSystemShould.cpp" />
+    <ClCompile Include="RoadSystemTest\SimulatorShould.cpp" />
+    <ClCompile Include="TestRunner\TestRunner.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Source\Source.vcxproj">
+      <Project>{6e5fcbfe-e4a7-4cb8-9ce8-2b78db31a196}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
