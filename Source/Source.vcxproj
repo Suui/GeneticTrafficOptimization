@@ -87,7 +87,7 @@
     <ClInclude Include="ParetoData\ParetoData.h" />
     <ClInclude Include="Utility\Logger.h" />
     <ClInclude Include="Utility\Math.h" />
-    <ClInclude Include="RoadSystem\Position.h" />
+    <ClInclude Include="Utility\Position.h" />
     <ClInclude Include="RoadSystem\Road.h" />
     <ClInclude Include="Builders\RoadBuilder.h" />
     <ClInclude Include="RoadSystem\RoadSystem.h" />
@@ -107,7 +107,7 @@
     <ClCompile Include="Utility\Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Utility\Math.cpp" />
-    <ClCompile Include="RoadSystem\Position.cpp" />
+    <ClCompile Include="Utility\Position.cpp" />
     <ClCompile Include="RoadSystem\Road.cpp" />
     <ClCompile Include="Builders\RoadBuilder.cpp" />
     <ClCompile Include="RoadSystem\RoadSystem.cpp" />

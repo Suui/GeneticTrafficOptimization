@@ -63,10 +63,14 @@
     <ClCompile Include="Simulation\Simulator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="ParetoData\ParetoData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ParetoData\Vehicle.cpp">
+=======
+    <ClCompile Include="Utility\Position.cpp">
+>>>>>>> master
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -119,10 +123,14 @@
     <ClInclude Include="Simulation\Simulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="ParetoData\ParetoData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ParetoData\Vehicle.h">
+=======
+    <ClInclude Include="Utility\Position.h">
+>>>>>>> master
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
