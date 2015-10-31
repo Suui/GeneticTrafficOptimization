@@ -16,6 +16,7 @@ public:
 		{
 			exitCount += 1;
 			state = Empty;
+			vehicle.reset();
 		}
 	}
 
