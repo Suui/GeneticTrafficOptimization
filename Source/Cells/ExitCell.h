@@ -10,8 +10,6 @@ public:
 
 	ExitCell(Direction direction) : Cell(direction) {}
 
-	bool isExitCell() override { return true; }
-
 	void VehicleExit() override
 	{
 		if (IsOccupied())

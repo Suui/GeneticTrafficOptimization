@@ -64,15 +64,9 @@ public:
 
 	void ResetVehicle() { vehicle.reset(); }
 
-	virtual bool isEntryCell() { return false; }
-
 	virtual void AddVehicle() {}
 
-	virtual bool isExitCell() { return false; }
-
 	virtual void VehicleExit() {}
-
-	virtual bool isTrafficLight() { return false; }
 
 	virtual TrafficLightState& GetTrafficLightState() { return trafficLightState; }
 

@@ -13,8 +13,6 @@ public:
 
 	EntryCell(Direction direction) : Cell(direction) {}
 
-	bool isEntryCell() override { return true; }
-
 	void SetState(CellState state) override;
 
 	void AddVehicle() override;
