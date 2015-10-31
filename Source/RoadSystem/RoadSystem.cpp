@@ -44,6 +44,7 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 		
 		roadSystem[currentPos]->SetState(Empty);
 
+		roadSystem[currentPos]->SetLastVehicleMovement(1);
 		roadSystem[lastPos]->SetVehicle(roadSystem[currentPos]->GetVehicle());
 	}
 }

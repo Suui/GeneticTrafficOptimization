@@ -54,6 +54,8 @@ public:
 
 	std::shared_ptr<Vehicle>& GetVehicle() { return vehicle; }
 
+	void SetLastVehicleMovement(int movement) { vehicle->SetlastMovement(movement); }
+
 	void SetVehicle(std::shared_ptr<Vehicle>& vehicle) { this->vehicle = vehicle; }
 
 	virtual bool isEntryCell() { return false; }
