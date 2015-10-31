@@ -89,7 +89,7 @@
     <ClInclude Include="Utility\Math.hpp" />
     <ClInclude Include="Utility\Position.hpp" />
     <ClInclude Include="RoadSystem\Road.h" />
-    <ClInclude Include="Builders\RoadBuilder.h" />
+    <ClInclude Include="Builders\RoadBuilder.hpp" />
     <ClInclude Include="RoadSystem\RoadSystem.h" />
     <ClInclude Include="RoadSystem\TrafficLightPair.h" />
     <ClInclude Include="Parsers\BinaryCycleParser.h" />
@@ -104,7 +104,6 @@
     <ClCompile Include="ParetoData\ParetoData.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RoadSystem\Road.cpp" />
-    <ClCompile Include="Builders\RoadBuilder.cpp" />
     <ClCompile Include="RoadSystem\RoadSystem.cpp" />
     <ClCompile Include="RoadSystem\TrafficLightPair.cpp" />
     <ClCompile Include="Parsers\BinaryCycleParser.cpp" />

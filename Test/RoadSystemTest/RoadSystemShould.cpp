@@ -102,7 +102,7 @@
 
 #include "../TestRunner/catch.hpp"
 #include <RoadSystem/RoadSystem.h>
-#include <Builders/RoadBuilder.h>
+#include <Builders/RoadBuilder.hpp>
 #include <Builders/BinaryCycleBuilder.h>
 
 
