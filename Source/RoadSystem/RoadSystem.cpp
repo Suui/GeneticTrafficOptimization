@@ -27,15 +27,11 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 		currentCell = roadSystem[positions[i]];
 		lastCell = roadSystem[positions[i + 1]];
 
-		if (currentCell->IsEmpty()) continue;
-
-		if (VehicleDoesntBelongToRoad(road, currentCell)) continue;
+		if (currentCell->IsEmpty() || VehicleDoesntBelongToRoad(road, currentCell)) continue;
 
 		currentCell->AddVehicleMovement(0);
 
-		if (currentCell->HasRedTrafficLight()) continue;
-
-		if (lastCell->IsOccupied()) continue;
+		if (currentCell->HasRedTrafficLight() || lastCell->IsOccupied()) continue;
 
 		road.GetDirection() == Vertical ? lastCell->SetState(VerticallyOccupied) 
 			                            : lastCell->SetState(HorizontallyOccupied);
