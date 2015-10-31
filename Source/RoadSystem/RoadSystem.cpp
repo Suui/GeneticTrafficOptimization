@@ -1,8 +1,8 @@
 ﻿#include "RoadSystem.h"
 #include "Road.h"
 #include "../Cells/EntryCell.h"
-#include "../Cells/ExitCell.h"
-#include "../Cells/TrafficLightCell.h"
+#include "../Cells/ExitCell.hpp"
+#include "../Cells/TrafficLightCell.hpp"
 #include "../Parsers/BinaryCycleParser.h"
 
 
