@@ -28,19 +28,10 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 		lastCell = roadSystem[positions[i + 1]];
 
 		if (currentCell->IsEmpty() || VehicleDoesntBelongToRoad(road, currentCell)) continue;
-
-		currentCell->AddVehicleMovement(0);
-
+		currentCell->CarIsIdle();
 		if (currentCell->HasRedTrafficLight() || lastCell->IsOccupied()) continue;
 
-		road.GetDirection() == Vertical ? lastCell->SetState(VerticallyOccupied) 
-			                            : lastCell->SetState(HorizontallyOccupied);
-		
-		currentCell->SetState(Empty);
-
-		currentCell->SetLastVehicleMovement(1);
-		lastCell->SetVehicle(currentCell->GetVehicle());
-		currentCell->ResetVehicle();
+		MoveVehicle(road, currentCell, lastCell);
 	}
 }
 
@@ -49,6 +40,18 @@ bool RoadSystem::VehicleDoesntBelongToRoad(Road& road, std::shared_ptr<Cell>& cu
 {
 	return road.GetDirection() == Vertical && currentCell->GetState() == HorizontallyOccupied
 		|| road.GetDirection() == Horizontal && currentCell->GetState() == VerticallyOccupied;
+}
+
+
+void RoadSystem::MoveVehicle(Road& road, std::shared_ptr<Cell>& currentCell, std::shared_ptr<Cell>& lastCell)
+{
+	road.GetDirection() == Vertical ? lastCell->SetState(VerticallyOccupied)
+									: lastCell->SetState(HorizontallyOccupied);
+	currentCell->SetState(Empty);
+
+	lastCell->SetVehicle(currentCell->GetVehicle());
+	lastCell->CarHasMoved();
+	currentCell->ResetVehicle();
 }
 
 

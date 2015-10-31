@@ -58,7 +58,7 @@ public:
 
 	std::shared_ptr<Vehicle>& GetVehicle() { return vehicle; }
 
-	void SetLastVehicleMovement(int movement) { vehicle->SetlastMovement(movement); }
+	void CarHasMoved() { vehicle->SetlastMovement(1); }
 
 	void SetVehicle(std::shared_ptr<Vehicle>& vehicle) { this->vehicle = vehicle; }
 
@@ -82,5 +82,5 @@ public:
 
 	virtual void ResetExitCout() {}
 
-	void AddVehicleMovement(int movement) {  if (vehicle) vehicle->AddMovement(movement); }
+	void CarIsIdle() {  if (vehicle) vehicle->AddMovement(0); }
 };

@@ -38,6 +38,8 @@ protected:
 
 	bool VehicleDoesntBelongToRoad(Road& road, std::shared_ptr<Cell>& currentCell);
 
+	void MoveVehicle(Road& road, std::shared_ptr<Cell>& currentCell, std::shared_ptr<Cell>& lastCell);
+
 
 public:
 
