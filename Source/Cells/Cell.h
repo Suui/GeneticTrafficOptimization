@@ -74,7 +74,7 @@ public:
 
 	virtual void SetTrafficLightState(TrafficLightState trafficLightState) { this->trafficLightState = trafficLightState; }
 
-	virtual void ResetExitCout() {}
+	virtual void ResetExitCount() {}
 
 	void CarIsIdle() {  if (vehicle) vehicle->AddMovement(0); }
 };

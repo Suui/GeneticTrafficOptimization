@@ -19,5 +19,5 @@ public:
 		}
 	}
 
-	void ResetExitCout() override { exitCount = 0; }
+	void ResetExitCount() override { exitCount = 0; }
 };

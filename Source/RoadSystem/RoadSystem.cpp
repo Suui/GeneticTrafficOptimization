@@ -75,10 +75,10 @@ void RoadSystem::UpdateTrafficLights()
 
 void RoadSystem::ResetExitedVehicles()
 {
-	roadSystem[firstRoad.GetExitCellPosition()]->ResetExitCout();
-	roadSystem[secondRoad.GetExitCellPosition()]->ResetExitCout();
-	roadSystem[thirdRoad.GetExitCellPosition()]->ResetExitCout();
-	roadSystem[fourthRoad.GetExitCellPosition()]->ResetExitCout();
+	roadSystem[firstRoad.GetExitCellPosition()]->ResetExitCount();
+	roadSystem[secondRoad.GetExitCellPosition()]->ResetExitCount();
+	roadSystem[thirdRoad.GetExitCellPosition()]->ResetExitCount();
+	roadSystem[fourthRoad.GetExitCellPosition()]->ResetExitCount();
 }
 
 
