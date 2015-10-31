@@ -29,9 +29,7 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 
 		if (IsEmpty(currentCell)) continue;
 
-		if (road.GetDirection() == Vertical && currentCell->GetState() == HorizontallyOccupied) continue;
-
-		if (road.GetDirection() == Horizontal && currentCell->GetState() == VerticallyOccupied) continue;
+		if (VehicleDoesntBelongToRoad(road, currentCell)) continue;
 
 		currentCell->AddVehicleMovement(0);
 
@@ -54,6 +52,13 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 bool RoadSystem::IsEmpty(std::shared_ptr<Cell> currentCell)
 {
 	return currentCell->GetState() == Empty;
+}
+
+
+bool RoadSystem::VehicleDoesntBelongToRoad(Road& road, std::shared_ptr<Cell>& currentCell)
+{
+	return road.GetDirection() == Vertical && currentCell->GetState() == HorizontallyOccupied
+		|| road.GetDirection() == Horizontal && currentCell->GetState() == VerticallyOccupied;
 }
 
 

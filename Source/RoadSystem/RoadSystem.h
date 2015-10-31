@@ -38,6 +38,8 @@ protected:
 
 	bool IsEmpty(std::shared_ptr<Cell> currentCell);
 
+	bool VehicleDoesntBelongToRoad(Road& road, std::shared_ptr<Cell>& currentCell);
+
 
 public:
 
