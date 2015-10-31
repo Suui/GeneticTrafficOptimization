@@ -43,6 +43,8 @@ public:
 	Cell(Direction direction);
 
 	virtual ~Cell() {}
+	
+	bool IsEmpty() { return state == 0; }
 
 	bool IsOccupied() { return state > 0; }
 

@@ -27,7 +27,7 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 		currentCell = roadSystem[positions[i]];
 		lastCell = roadSystem[positions[i + 1]];
 
-		if (IsEmpty(currentCell)) continue;
+		if (currentCell->IsEmpty()) continue;
 
 		if (VehicleDoesntBelongToRoad(road, currentCell)) continue;
 
@@ -46,12 +46,6 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 		lastCell->SetVehicle(currentCell->GetVehicle());
 		currentCell->ResetVehicle();
 	}
-}
-
-
-bool RoadSystem::IsEmpty(std::shared_ptr<Cell>& currentCell)
-{
-	return currentCell->GetState() == Empty;
 }
 
 
