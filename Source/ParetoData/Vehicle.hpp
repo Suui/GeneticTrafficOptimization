@@ -10,7 +10,6 @@ class Vehicle
 
 public:
 
-
 	Vehicle() {}
 
 	void AddMovement(int movement) { gasData.push_back(movement); }

@@ -15,7 +15,6 @@
     <ClCompile Include="Parsers\BinaryCycleParser.cpp" />
     <ClCompile Include="Simulation\Simulator.cpp" />
     <ClCompile Include="GeneticStrategies\Tournament.cpp" />
-    <ClCompile Include="ParetoData\Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Builders\BinaryCycleBuilder.h" />
@@ -32,9 +31,9 @@
     <ClInclude Include="Parsers\BinaryCycleParser.h" />
     <ClInclude Include="Simulation\Simulator.h" />
     <ClInclude Include="GeneticStrategies\Tournament.h" />
-    <ClInclude Include="ParetoData\Vehicle.h" />
     <ClInclude Include="Utility\Logger.hpp" />
     <ClInclude Include="Utility\Math.hpp" />
     <ClInclude Include="Utility\Position.hpp" />
+    <ClInclude Include="ParetoData\Vehicle.hpp" />
   </ItemGroup>
 </Project>
