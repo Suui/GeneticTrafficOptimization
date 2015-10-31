@@ -21,9 +21,6 @@
     <ClCompile Include="RoadSystem\Road.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RoadSystem\Position.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Cells\Cell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -63,6 +60,9 @@
     <ClCompile Include="Simulation\Simulator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Utility\Position.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RoadSystem\RoadSystem.h">
@@ -72,9 +72,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Exceptions\NotImplementedException.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RoadSystem\Position.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cells\Cell.h">
@@ -111,6 +108,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Simulation\Simulator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\Position.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
