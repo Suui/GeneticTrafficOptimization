@@ -36,6 +36,8 @@ protected:
 
 	void AdvanceVehiclesInRoad(Road& road);
 
+	bool IsEmpty(std::shared_ptr<Cell> currentCell);
+
 
 public:
 
