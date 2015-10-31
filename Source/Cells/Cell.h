@@ -58,6 +58,8 @@ public:
 
 	void SetVehicle(std::shared_ptr<Vehicle>& vehicle) { this->vehicle = vehicle; }
 
+	void ResetVehicle() { vehicle.reset(); }
+
 	virtual bool isEntryCell() { return false; }
 
 	virtual void AddVehicle() {}
