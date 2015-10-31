@@ -1,6 +1,6 @@
 ﻿#include "Tournament.h"
 #include "../Builders/BinaryCycleBuilder.h"
-#include "../Utility/Math.h"
+#include "../Utility/Math.hpp"
 #include "../Utility/Logger.hpp"
 
 
