@@ -83,7 +83,7 @@
     <ClInclude Include="Cells\EntryCell.h" />
     <ClInclude Include="Cells\ExitCell.h" />
     <ClInclude Include="Cells\TrafficLightCell.h" />
-    <ClInclude Include="Exceptions\NotImplementedException.h" />
+    <ClInclude Include="Exceptions\NotImplementedException.hpp" />
     <ClInclude Include="ParetoData\ParetoData.h" />
     <ClInclude Include="Utility\Logger.hpp" />
     <ClInclude Include="Utility\Math.hpp" />

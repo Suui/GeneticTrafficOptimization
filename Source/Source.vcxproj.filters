@@ -22,7 +22,6 @@
     <ClInclude Include="Cells\EntryCell.h" />
     <ClInclude Include="Cells\ExitCell.h" />
     <ClInclude Include="Cells\TrafficLightCell.h" />
-    <ClInclude Include="Exceptions\NotImplementedException.h" />
     <ClInclude Include="ParetoData\ParetoData.h" />
     <ClInclude Include="RoadSystem\Road.h" />
     <ClInclude Include="Builders\RoadBuilder.h" />
@@ -35,5 +34,6 @@
     <ClInclude Include="Utility\Math.hpp" />
     <ClInclude Include="Utility\Position.hpp" />
     <ClInclude Include="ParetoData\Vehicle.hpp" />
+    <ClInclude Include="Exceptions\NotImplementedException.hpp" />
   </ItemGroup>
 </Project>
