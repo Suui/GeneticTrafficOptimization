@@ -46,6 +46,8 @@ public:
 
 	bool IsOccupied() { return state > 0; }
 
+	bool HasRedTrafficLight() { return trafficLightState == Red; }
+
 	virtual CellState& GetState() { return state; }
 
 	virtual void SetState(CellState state) { this->state = state; }

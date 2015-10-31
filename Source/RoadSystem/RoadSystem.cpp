@@ -33,7 +33,7 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 
 		currentCell->AddVehicleMovement(0);
 
-		if (currentCell->GetTrafficLightState() == Red) continue;
+		if (currentCell->HasRedTrafficLight()) continue;
 
 		if (lastCell->IsOccupied()) continue;
 
