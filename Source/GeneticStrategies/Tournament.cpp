@@ -1,7 +1,7 @@
 ﻿#include "Tournament.h"
 #include "../Builders/BinaryCycleBuilder.h"
 #include "../Utility/Math.h"
-#include "../Utility/Logger.h"
+#include "../Utility/Logger.hpp"
 
 
 Tournament::Tournament(int confrontations, int poolSize) : confrontations(confrontations), poolSize(poolSize)

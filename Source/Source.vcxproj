@@ -85,7 +85,7 @@
     <ClInclude Include="Cells\TrafficLightCell.h" />
     <ClInclude Include="Exceptions\NotImplementedException.h" />
     <ClInclude Include="ParetoData\ParetoData.h" />
-    <ClInclude Include="Utility\Logger.h" />
+    <ClInclude Include="Utility\Logger.hpp" />
     <ClInclude Include="Utility\Math.h" />
     <ClInclude Include="Utility\Position.h" />
     <ClInclude Include="RoadSystem\Road.h" />
@@ -104,7 +104,6 @@
     <ClCompile Include="Cells\ExitCell.cpp" />
     <ClCompile Include="Cells\TrafficLightCell.cpp" />
     <ClCompile Include="ParetoData\ParetoData.cpp" />
-    <ClCompile Include="Utility\Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Utility\Math.cpp" />
     <ClCompile Include="Utility\Position.cpp" />
