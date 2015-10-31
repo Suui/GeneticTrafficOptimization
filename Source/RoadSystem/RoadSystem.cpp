@@ -27,17 +27,17 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 		currentPos = positions[i];
 		lastPos = positions[i + 1];
 
-		roadSystem[currentPos]->AddVehicleMovement(0);
-
 		if (roadSystem[currentPos]->GetState() == Empty) continue;
+
+		if (road.GetDirection() == Vertical && roadSystem[currentPos]->GetState() == HorizontallyOccupied) continue;
+
+		if (road.GetDirection() == Horizontal && roadSystem[currentPos]->GetState() == VerticallyOccupied) continue;
+
+		roadSystem[currentPos]->AddVehicleMovement(0);
 
 		if (roadSystem[currentPos]->GetTrafficLightState() == Red) continue;
 
 		if (roadSystem[lastPos]->IsOccupied()) continue;
-		
-		if (road.GetDirection() == Vertical && roadSystem[currentPos]->GetState() == HorizontallyOccupied) continue;
-		
-		if (road.GetDirection() == Horizontal && roadSystem[currentPos]->GetState() == VerticallyOccupied) continue;
 
 		road.GetDirection() == Vertical ? roadSystem[lastPos]->SetState(VerticallyOccupied) 
 			                            : roadSystem[lastPos]->SetState(HorizontallyOccupied);
