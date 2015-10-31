@@ -1,3 +1,4 @@
+#include <string>
 
 
 class NotImplementedException : public std::exception
