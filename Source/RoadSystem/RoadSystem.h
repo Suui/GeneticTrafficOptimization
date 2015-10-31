@@ -4,6 +4,7 @@
 #include "Position.h"
 #include "../Cells/Cell.h"
 #include "TrafficLightPair.h"
+#include "../ParetoData/ParetoData.h"
 #include <map>
 
 
@@ -13,6 +14,7 @@ class RoadSystem
 protected:
 
 	std::map<Position, std::shared_ptr<Cell>> roadSystem;
+	ParetoData gasData;
 	
 	Road firstRoad, 
 		 secondRoad, 

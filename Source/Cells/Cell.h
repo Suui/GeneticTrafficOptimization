@@ -1,5 +1,7 @@
 ﻿#pragma once
+
 #include "../ParetoData/Vehicle.h"
+#include "../ParetoData/ParetoData.h"
 #include <memory>
 
 
@@ -55,6 +57,8 @@ public:
 	virtual void SetState(CellState state) { this->state = state; }
 
 	Direction GetDirection() { return direction; }
+
+	void FillVehicleGasDataIn(ParetoData& gasData) { if (vehicle) gasData.AddDataFrom(vehicle); }
 
 	std::shared_ptr<Vehicle>& GetVehicle() { return vehicle; }
 

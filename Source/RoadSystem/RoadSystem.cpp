@@ -19,6 +19,7 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 {
 	std::vector<Position> positions = road.GetPositions();
 
+	roadSystem[road.GetExitCellPosition()]->FillVehicleGasDataIn(gasData);
 	roadSystem[road.GetExitCellPosition()]->VehicleExit();
 
 	std::shared_ptr<Cell> currentCell, lastCell;

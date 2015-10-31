@@ -1,4 +1,5 @@
 ﻿#include "Cell.h"
+#include "../ParetoData/ParetoData.h"
 
 
 Cell::Cell(Direction direction) : direction(direction)
