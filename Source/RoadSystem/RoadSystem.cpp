@@ -48,11 +48,12 @@ void RoadSystem::MoveVehicle(Road& road, std::shared_ptr<Cell>& currentCell, std
 {
 	road.GetDirection() == Vertical ? lastCell->SetState(VerticallyOccupied)
 									: lastCell->SetState(HorizontallyOccupied);
-	currentCell->SetState(Empty);
 
 	lastCell->SetVehicle(currentCell->GetVehicle());
 	lastCell->CarHasMoved();
 	currentCell->ResetVehicle();
+
+	currentCell->SetState(Empty);
 }
 
 
