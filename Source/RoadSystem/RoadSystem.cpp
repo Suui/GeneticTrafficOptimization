@@ -49,7 +49,7 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 }
 
 
-bool RoadSystem::IsEmpty(std::shared_ptr<Cell> currentCell)
+bool RoadSystem::IsEmpty(std::shared_ptr<Cell>& currentCell)
 {
 	return currentCell->GetState() == Empty;
 }
