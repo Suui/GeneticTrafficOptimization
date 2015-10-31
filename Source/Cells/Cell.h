@@ -1,5 +1,9 @@
 ﻿#pragma once
 
+#include "../ParetoData/Vehicle.h"
+#include "../ParetoData/ParetoData.h"
+#include <memory>
+
 
 enum CellState
 {
@@ -32,6 +36,7 @@ protected:
 	TrafficLightState trafficLightState;
 	Direction direction;
 	int entryQueue, exitCount;
+	std::shared_ptr<Vehicle> vehicle;
 
 
 public:
@@ -39,8 +44,12 @@ public:
 	Cell(Direction direction);
 
 	virtual ~Cell() {}
+	
+	bool IsEmpty() { return state == 0; }
 
 	bool IsOccupied() { return state > 0; }
+
+	bool HasRedTrafficLight() { return trafficLightState == Red; }
 
 	virtual CellState& GetState() { return state; }
 
@@ -48,15 +57,19 @@ public:
 
 	Direction GetDirection() { return direction; }
 
-	virtual bool isEntryCell() { return false; }
+	void FillVehicleGasDataIn(ParetoData& gasData) { if (vehicle) gasData.AddDataFrom(vehicle); }
+
+	std::shared_ptr<Vehicle>& GetVehicle() { return vehicle; }
+
+	void CarHasMoved() { vehicle->SetlastMovement(1); }
+
+	void SetVehicle(std::shared_ptr<Vehicle>& vehicle) { this->vehicle = vehicle; }
+
+	void ResetVehicle() { vehicle.reset(); }
 
 	virtual void AddVehicle() {}
 
-	virtual bool isExitCell() { return false; }
-
 	virtual void VehicleExit() {}
-
-	virtual bool isTrafficLight() { return false; }
 
 	virtual TrafficLightState& GetTrafficLightState() { return trafficLightState; }
 
@@ -64,5 +77,7 @@ public:
 
 	virtual void SetTrafficLightState(TrafficLightState trafficLightState) { this->trafficLightState = trafficLightState; }
 
-	virtual void ResetExitCout() {}
+	virtual void ResetExitCount() {}
+
+	void CarIsIdle() {  if (vehicle) vehicle->AddMovement(0); }
 };

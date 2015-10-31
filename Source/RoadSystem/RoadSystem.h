@@ -1,9 +1,9 @@
 ﻿#pragma once
 
 #include "Road.h"
-#include "Position.h"
 #include "../Cells/Cell.h"
 #include "TrafficLightPair.h"
+#include "../ParetoData/ParetoData.h"
 #include <map>
 
 
@@ -13,6 +13,7 @@ class RoadSystem
 protected:
 
 	std::map<Position, std::shared_ptr<Cell>> roadSystem;
+	ParetoData gasData;
 	
 	Road firstRoad, 
 		 secondRoad, 
@@ -35,6 +36,10 @@ protected:
 	void SetUpFourthTrafficLightPair();
 
 	void AdvanceVehiclesInRoad(Road& road);
+
+	bool VehicleDoesntBelongToRoad(Road& road, std::shared_ptr<Cell>& currentCell);
+
+	void MoveVehicle(Road& road, std::shared_ptr<Cell>& currentCell, std::shared_ptr<Cell>& lastCell);
 
 
 public:

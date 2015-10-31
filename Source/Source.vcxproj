@@ -84,9 +84,10 @@
     <ClInclude Include="Cells\ExitCell.h" />
     <ClInclude Include="Cells\TrafficLightCell.h" />
     <ClInclude Include="Exceptions\NotImplementedException.h" />
+    <ClInclude Include="ParetoData\ParetoData.h" />
     <ClInclude Include="Utility\Logger.h" />
     <ClInclude Include="Utility\Math.h" />
-    <ClInclude Include="RoadSystem\Position.h" />
+    <ClInclude Include="Utility\Position.h" />
     <ClInclude Include="RoadSystem\Road.h" />
     <ClInclude Include="Builders\RoadBuilder.h" />
     <ClInclude Include="RoadSystem\RoadSystem.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="Parsers\BinaryCycleParser.h" />
     <ClInclude Include="Simulation\Simulator.h" />
     <ClInclude Include="GeneticStrategies\Tournament.h" />
+    <ClInclude Include="ParetoData\Vehicle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Builders\BinaryCycleBuilder.cpp" />
@@ -101,10 +103,11 @@
     <ClCompile Include="Cells\EntryCell.cpp" />
     <ClCompile Include="Cells\ExitCell.cpp" />
     <ClCompile Include="Cells\TrafficLightCell.cpp" />
+    <ClCompile Include="ParetoData\ParetoData.cpp" />
     <ClCompile Include="Utility\Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Utility\Math.cpp" />
-    <ClCompile Include="RoadSystem\Position.cpp" />
+    <ClCompile Include="Utility\Position.cpp" />
     <ClCompile Include="RoadSystem\Road.cpp" />
     <ClCompile Include="Builders\RoadBuilder.cpp" />
     <ClCompile Include="RoadSystem\RoadSystem.cpp" />
@@ -112,6 +115,7 @@
     <ClCompile Include="Parsers\BinaryCycleParser.cpp" />
     <ClCompile Include="Simulation\Simulator.cpp" />
     <ClCompile Include="GeneticStrategies\Tournament.cpp" />
+    <ClCompile Include="ParetoData\Vehicle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
