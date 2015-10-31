@@ -16,7 +16,6 @@ void EntryCell::SetState(CellState state)
 void EntryCell::AddVehicle()
 { 
 	vehicleQueue.push(std::make_shared<Vehicle>());
-	vehicleID += 1;
 
 	if (IsOccupied()) return;
 

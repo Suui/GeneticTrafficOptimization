@@ -37,7 +37,6 @@ protected:
 	Direction direction;
 	int entryQueue, exitCount;
 	std::shared_ptr<Vehicle> vehicle;
-	static int vehicleID;
 
 
 public:
