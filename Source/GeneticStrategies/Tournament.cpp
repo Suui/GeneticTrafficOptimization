@@ -8,7 +8,7 @@ Tournament::Tournament(int confrontations, int poolSize) : confrontations(confro
 {
 	Logger::LogLine("Setting up tournament's pool...");
 	SetPool();
-	Logger::LogLine("Tournament's pool setup finished, starting confrontations:");
+	Logger::LogLine("Tournament's pool setup finished, starting confrontations: ");
 }
 
 
