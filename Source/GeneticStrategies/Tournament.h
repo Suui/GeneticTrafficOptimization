@@ -12,9 +12,7 @@ class Tournament
 
 	void SetPool();
 
-	void CheckFitness(int& randomIndex);
-
-	void SetupSimulatorForNextSimulation(int& randomIndex);
+	void SetupSimulatorForNextSimulation(int& index);
 
 	void UpdateBestFitnessAndCycle(int randomIndex, int fitness);
 
@@ -22,6 +20,6 @@ class Tournament
 public:
 
 	explicit Tournament(int confrontations, int poolSize);
-	
+
 	void Execute();
 };

@@ -25,31 +25,33 @@ void Tournament::Execute()
 {
 	for (int i = 0; i < confrontations; i++)
 	{
-		int randomIndex;
-		SetupSimulatorForNextSimulation(randomIndex);
+		int firstIndex, secondIndex;
+		SetupSimulatorForNextSimulation(firstIndex);
 		simulator.Simulate();
+		int firstFitness = simulator.GetExitedVehiclesForLastSimulation();
 
-		CheckFitness(randomIndex);
+		SetupSimulatorForNextSimulation(secondIndex);
+		simulator.Simulate();
+		int secondFitness = simulator.GetExitedVehiclesForLastSimulation();
 
-		binaryCyclesPool.erase(binaryCyclesPool.begin() + randomIndex);
-		Logger::LogLine(bestFitness);
+		if (firstFitness >= secondFitness)
+		{
+			selectedBinaryCycles.push_back(binaryCyclesPool[firstIndex]);		
+			Logger::LogLine(firstFitness);
+		}
+		else
+		{
+			selectedBinaryCycles.push_back(binaryCyclesPool[secondIndex]);
+			Logger::LogLine(secondFitness);
+		}
 	}
 }
 
 
-void Tournament::SetupSimulatorForNextSimulation(int& randomIndex)
+void Tournament::SetupSimulatorForNextSimulation(int& index)
 {
-	randomIndex = Math::RandomExclusive(binaryCyclesPool.size());
-	simulator.SetTrafficLightCycles(binaryCyclesPool[randomIndex]);
-}
-
-
-void Tournament::CheckFitness(int& randomIndex)
-{
-	int fitness = simulator.GetExitedVehiclesForLastSimulation();
-
-	if (fitness > bestFitness)
-		UpdateBestFitnessAndCycle(randomIndex, fitness);
+	index = Math::RandomExclusive(binaryCyclesPool.size());
+	simulator.SetTrafficLightCycles(binaryCyclesPool[index]);
 }
 
 
