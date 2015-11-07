@@ -1,25 +1,32 @@
 ﻿#pragma once
-#include <vector>
+
 #include "../Simulation/Simulator.h"
+#include "FitnessBinaryCyclePair.h"
+#include <vector>
+#include <mutex>
 
 
 class Tournament
 {
-	Simulator simulator;
-	std::vector<std::vector<int>> binaryCyclesPool, selectedBinaryCycles;
-	std::vector<int> bestCycle;
-	int confrontations, poolSize, bestFitness;
+	Simulator firSimulator, secondSimulator, thirdSimulator, fourthSimulator;
+	std::vector<std::vector<int>> binaryCyclesPool;
+	std::vector<FitnessBinaryCyclePair> selectedBinaryCycles;
+	int generations, poolSize;
+
+	static std::mutex mutex;
 
 	void SetPool();
+	
+	void SetupSimulators();
+	
+	void Compete(Simulator& simulator);
 
 	void SetupSimulatorForNextSimulation(int& index);
-
-	void UpdateBestFitnessAndCycle(int randomIndex, int fitness);
 
 
 public:
 
-	explicit Tournament(int confrontations, int poolSize);
+	explicit Tournament(int generations, int populationSize);
 
 	void Execute();
 };
