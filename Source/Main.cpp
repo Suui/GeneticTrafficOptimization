@@ -3,7 +3,7 @@
 
 int main()
 {
-	Tournament tournament = Tournament(1000, 262144);
+	Tournament tournament = Tournament(100, 100);
 	tournament.Execute();
 
 	return 0;
