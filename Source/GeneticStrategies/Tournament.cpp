@@ -39,7 +39,6 @@ void Tournament::Execute()
 
 void Tournament::SetupSimulatorForNextSimulation(int& randomIndex)
 {
-	Math::SetRandomSeed();
 	randomIndex = Math::RandomExclusive(binaryCyclesPool.size());
 	simulator.SetTrafficLightCycles(binaryCyclesPool[randomIndex]);
 }

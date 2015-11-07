@@ -6,7 +6,7 @@
 class Tournament
 {
 	Simulator simulator;
-	std::vector<std::vector<int>> binaryCyclesPool;
+	std::vector<std::vector<int>> binaryCyclesPool, selectedBinaryCycles;
 	std::vector<int> bestCycle;
 	int confrontations, poolSize, bestFitness;
 
