@@ -3,6 +3,7 @@
 #include "../Utility/Logger.hpp"
 #include <thread>
 #include <random>
+#include <algorithm>
 
 
 std::mutex Tournament::mutex;
@@ -27,10 +28,10 @@ void Tournament::SetPool()
 
 void Tournament::SetupSimulators()
 {
-	firSimulator.SetSimulationSteps(1800);
-	secondSimulator.SetSimulationSteps(1800);
-	thirdSimulator.SetSimulationSteps(1800);
-	fourthSimulator.SetSimulationSteps(1800);
+	firSimulator.SetSimulationSteps(900);
+	secondSimulator.SetSimulationSteps(900);
+	thirdSimulator.SetSimulationSteps(900);
+	fourthSimulator.SetSimulationSteps(900);
 }
 
 
@@ -64,27 +65,32 @@ void Tournament::Compete(Simulator& simulator)
 }
 
 
+void Tournament::SetUpNextGeneration()
+{
+	std::sort(selectedBinaryCycles.begin(), selectedBinaryCycles.end(), std::greater<FitnessBinaryCyclePair>());
+	
+}
+
+
 void Tournament::Execute()
 {
 	for (int i = 0; i < generations; i++)
 	{
-		std::thread firstSimulation(&Tournament::Compete, this, std::ref(firSimulator));
-		std::thread secondSimulation(&Tournament::Compete, this, std::ref(secondSimulator));
-		std::thread thirdSimulation(&Tournament::Compete, this, std::ref(thirdSimulator));
-		std::thread fourthSimulation(&Tournament::Compete, this, std::ref(fourthSimulator));
-		
-		firstSimulation.join();
-		secondSimulation.join();
-		thirdSimulation.join();
-		fourthSimulation.join();
+		for (int j = 0; j < poolSize / NUMBER_OF_THREADS; j++)
+		{
+			std::thread firstSimulation(&Tournament::Compete, this, std::ref(firSimulator));
+			std::thread secondSimulation(&Tournament::Compete, this, std::ref(secondSimulator));
+			std::thread thirdSimulation(&Tournament::Compete, this, std::ref(thirdSimulator));
+			std::thread fourthSimulation(&Tournament::Compete, this, std::ref(fourthSimulator));
 
-		Logger::LogLine(selectedBinaryCycles.size());
+			firstSimulation.join();
+			secondSimulation.join();
+			thirdSimulation.join();
+			fourthSimulation.join();
+			
+			Logger::LogLine(selectedBinaryCycles.size());
+		}
+
+		SetUpNextGeneration();
 	}
-}
-
-
-void Tournament::SetupSimulatorForNextSimulation(int& index)
-{
-	
-	
 }

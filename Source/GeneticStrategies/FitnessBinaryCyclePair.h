@@ -7,8 +7,8 @@ struct FitnessBinaryCyclePair
 {
 private:
 
-	std::vector<int>& binaryCycle;
-	int& fitness;
+	std::vector<int> binaryCycle;
+	int fitness;
 
 
 public:
@@ -17,10 +17,9 @@ public:
 																		  fitness(fitness)
 	{}
 
-	std::vector<int>& GetBinaryCycle() const { return binaryCycle; }
+	std::vector<int>& GetBinaryCycle() { return binaryCycle; }
 
-	int& GetFitness() const { return fitness; }
-
+	int& GetFitness() { return fitness; }
 
 	friend bool operator==(const FitnessBinaryCyclePair& Lhs, const FitnessBinaryCyclePair& Rhs)
 	{
