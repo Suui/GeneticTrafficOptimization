@@ -99,6 +99,7 @@ void Tournament::PrintLastResults()
 	Logger::LogLine("Running last simulation with the best fitness...");
 	firSimulator.SetSimulationSteps(7200);
 	firSimulator.SetTrafficLightCycles(binaryCyclesPool[0]);
+	firSimulator.Simulate();
 	Logger::LogLine("Total vehicles that exited the roads: ");
 	Logger::LogLine(firSimulator.GetExitedVehiclesForLastSimulation());
 }
