@@ -1,5 +1,7 @@
 ﻿#include "Tournament.h"
+#include "TwoPointCrossover.h"
 #include "../Builders/BinaryCycleBuilder.h"
+#include "../Utility/Math.hpp"
 #include "../Utility/Logger.hpp"
 #include <thread>
 #include <random>
@@ -8,7 +10,8 @@
 
 std::mutex Tournament::mutex;
 
-Tournament::Tournament(int generations, int populationSize) : generations(generations), poolSize(populationSize)
+Tournament::Tournament(int generations, int populationSize) : generations(generations),
+															  poolSize(populationSize - populationSize % NUMBER_OF_THREADS)
 {
 	Logger::LogLine("Setting up tournament's pool...");
 	SetPool();
@@ -53,22 +56,37 @@ void Tournament::Compete(Simulator& simulator)
 
 	std::lock_guard<std::mutex> guard(mutex);
 	if (firstResult >= secondResult)
-	{
 		selectedBinaryCycles.push_back(firstResult);
-		Logger::LogLine(firstResult.GetFitness());
-	}
 	else
-	{
 		selectedBinaryCycles.push_back(secondResult);
-		Logger::LogLine(secondResult.GetFitness());
-	}
+}
+
+
+void Tournament::SortSelectedGenesByFitness()
+{
+	std::sort(selectedBinaryCycles.begin(), selectedBinaryCycles.end(), std::greater<FitnessBinaryCyclePair>());
 }
 
 
 void Tournament::SetUpNextGeneration()
 {
-	std::sort(selectedBinaryCycles.begin(), selectedBinaryCycles.end(), std::greater<FitnessBinaryCyclePair>());
-	
+	// Elitism
+	binaryCyclesPool[0] = selectedBinaryCycles[0].GetBinaryCycle();
+	binaryCyclesPool[1] = selectedBinaryCycles[0].GetBinaryCycle();
+
+	// Two Point Crossover
+	for (auto i = 2, index = 2; i < poolSize; i += 2, index++)
+	{
+		std::vector<int> father = selectedBinaryCycles[index].GetBinaryCycle();
+		std::vector<int> mother = selectedBinaryCycles[Math::RandomExclusive(poolSize)].GetBinaryCycle();
+
+		std::vector<std::vector<int>> sons = TwoPointCrossover::Reproduce(father, mother);
+
+		binaryCyclesPool[i] = sons[0];
+		binaryCyclesPool[i + 1] = sons[1];
+	}
+
+	selectedBinaryCycles.clear();
 }
 
 
@@ -76,6 +94,8 @@ void Tournament::Execute()
 {
 	for (int i = 0; i < generations; i++)
 	{
+		Logger::LogLine("Selected genes...");
+
 		for (int j = 0; j < poolSize / NUMBER_OF_THREADS; j++)
 		{
 			std::thread firstSimulation(&Tournament::Compete, this, std::ref(firSimulator));
@@ -90,6 +110,10 @@ void Tournament::Execute()
 			
 			Logger::LogLine(selectedBinaryCycles.size());
 		}
+
+		SortSelectedGenesByFitness();
+		Logger::LogLine("\nBest Fitness in this generation: ");
+		Logger::LogLine(selectedBinaryCycles[0].GetFitness());
 
 		SetUpNextGeneration();
 	}
