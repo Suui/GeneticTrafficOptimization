@@ -6,6 +6,7 @@
 #include <thread>
 #include <random>
 #include <algorithm>
+#include "Mutation.h"
 
 
 std::mutex Tournament::mutex;
@@ -75,12 +76,15 @@ void Tournament::SetUpNextGeneration()
 	binaryCyclesPool[1] = selectedBinaryCycles[1].GetBinaryCycle();
 
 	// Two Point Crossover
-	for (auto i = 2, index = 2; i < poolSize; i += 2, index++)
+	for (auto i = 2, index = 0; i < poolSize; i += 2)
 	{
-		std::vector<int> father = selectedBinaryCycles[index].GetBinaryCycle();
+		std::vector<int> father = selectedBinaryCycles[index++].GetBinaryCycle();
 		std::vector<int> mother = selectedBinaryCycles[Math::RandomExclusive(poolSize)].GetBinaryCycle();
 
 		std::vector<std::vector<int>> sons = TwoPointCrossover::Reproduce(father, mother);
+
+		Mutation::MaybeMutate(sons[0]);
+		Mutation::MaybeMutate(sons[1]);
 
 		binaryCyclesPool[i] = sons[0];
 		binaryCyclesPool[i + 1] = sons[1];
@@ -122,7 +126,7 @@ void Tournament::Execute()
 		}
 
 		SortSelectedGenesByFitness();
-		Logger::LogLine("\nBest Fitness in this generation: ");
+		std::cout << "\nBest fitness in this generation " << i << ": " << std::endl;
 		Logger::LogLine(selectedBinaryCycles[0].GetFitness());
 
 		SetUpNextGeneration();

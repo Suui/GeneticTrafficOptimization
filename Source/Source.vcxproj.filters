@@ -14,6 +14,7 @@
     <ClCompile Include="GeneticStrategies\Tournament.cpp" />
     <ClCompile Include="GeneticStrategies\FitnessBinaryCyclePair.cpp" />
     <ClCompile Include="GeneticStrategies\TwoPointCrossover.cpp" />
+    <ClCompile Include="GeneticStrategies\Mutation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Builders\BinaryCycleBuilder.h" />
@@ -36,5 +37,6 @@
     <ClInclude Include="Builders\RoadBuilder.hpp" />
     <ClInclude Include="GeneticStrategies\FitnessBinaryCyclePair.h" />
     <ClInclude Include="GeneticStrategies\TwoPointCrossover.h" />
+    <ClInclude Include="GeneticStrategies\Mutation.h" />
   </ItemGroup>
 </Project>

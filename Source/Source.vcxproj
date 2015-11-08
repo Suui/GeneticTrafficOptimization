@@ -85,6 +85,7 @@
     <ClInclude Include="Cells\TrafficLightCell.hpp" />
     <ClInclude Include="Exceptions\NotImplementedException.hpp" />
     <ClInclude Include="GeneticStrategies\FitnessBinaryCyclePair.h" />
+    <ClInclude Include="GeneticStrategies\Mutation.h" />
     <ClInclude Include="GeneticStrategies\TwoPointCrossover.h" />
     <ClInclude Include="ParetoData\ParetoData.h" />
     <ClInclude Include="Utility\Logger.hpp" />
@@ -104,6 +105,7 @@
     <ClCompile Include="Cells\Cell.cpp" />
     <ClCompile Include="Cells\EntryCell.cpp" />
     <ClCompile Include="GeneticStrategies\FitnessBinaryCyclePair.cpp" />
+    <ClCompile Include="GeneticStrategies\Mutation.cpp" />
     <ClCompile Include="GeneticStrategies\TwoPointCrossover.cpp" />
     <ClCompile Include="ParetoData\ParetoData.cpp" />
     <ClCompile Include="Main.cpp" />
