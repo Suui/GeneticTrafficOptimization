@@ -90,6 +90,16 @@ void Tournament::SetUpNextGeneration()
 }
 
 
+void Tournament::PrintLastResults()
+{
+	Logger::LogLine("Running last simulation with the best fitness...");
+	firSimulator.SetSimulationSteps(7200);
+	firSimulator.SetTrafficLightCycles(binaryCyclesPool[0]);
+	Logger::LogLine("Total vehicles that exited the roads: ");
+	Logger::LogLine(firSimulator.GetExitedVehiclesForLastSimulation());
+}
+
+
 void Tournament::Execute()
 {
 	for (int i = 0; i < generations; i++)
@@ -117,4 +127,6 @@ void Tournament::Execute()
 
 		SetUpNextGeneration();
 	}
+
+	PrintLastResults();
 }
