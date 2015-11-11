@@ -57,11 +57,12 @@ void Tournament::SortSelectedGenesByFitness()
 }
 
 
-void Tournament::SetUpNextGeneration()
+void Tournament::Elitism()
 {
-	// Elitism
 	binaryCyclesPool[0] = selectedBinaryCycles[0].GetBinaryCycle();
 	binaryCyclesPool[1] = selectedBinaryCycles[1].GetBinaryCycle();
+}
+
 
 	// Two Point Crossover
 	for (auto i = 2, index = 0; i < poolSize; i += 2)
@@ -77,6 +78,10 @@ void Tournament::SetUpNextGeneration()
 		binaryCyclesPool[i] = sons[0];
 		binaryCyclesPool[i + 1] = sons[1];
 	}
+
+void Tournament::SetUpNextGeneration()
+{
+	Elitism();
 
 	selectedBinaryCycles.clear();
 }

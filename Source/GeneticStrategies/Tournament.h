@@ -21,7 +21,9 @@ class Tournament
 	void Compete(Simulator& simulator);
 	
 	void SortSelectedGenesByFitness();
-	
+
+	void Elitism();
+
 	void SetUpNextGeneration();
 	
 
