@@ -41,6 +41,8 @@ protected:
 
 	void MoveVehicle(Road& road, std::shared_ptr<Cell>& currentCell, std::shared_ptr<Cell>& lastCell);
 
+	void ClearRoad(Road& Road);
+
 
 public:
 
@@ -64,7 +66,7 @@ public:
 	
 	void UpdateTrafficLights();
 
-	void ResetExitedVehicles();
+	void ResetRoadSystem();
 	
 	int GetExitedVehicles();
 };

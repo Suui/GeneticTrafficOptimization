@@ -19,7 +19,7 @@ void RoadSystem::AdvanceVehiclesInRoad(Road& road)
 {
 	std::vector<Position> positions = road.GetPositions();
 
-	roadSystem[road.GetExitCellPosition()]->FillVehicleGasDataIn(gasData);
+	//roadSystem[road.GetExitCellPosition()]->FillVehicleGasDataIn(gasData);
 	roadSystem[road.GetExitCellPosition()]->VehicleExit();
 
 	std::shared_ptr<Cell> currentCell, lastCell;
@@ -57,6 +57,20 @@ void RoadSystem::MoveVehicle(Road& road, std::shared_ptr<Cell>& currentCell, std
 }
 
 
+
+void RoadSystem::ClearRoad(Road& road)
+{
+	roadSystem[road.GetExitCellPosition()]->ResetExitCount();
+	roadSystem[road.GetEntryCellPosition()]->ResetQueue();
+
+	for (auto pos : road.GetPositions())
+	{
+		roadSystem[pos]->SetState(Empty);
+		roadSystem[pos]->ResetVehicle();
+	}
+}
+
+
 void RoadSystem::AddVehiclesInEntryCells()
 {
 	roadSystem[firstRoad.GetEntryCellPosition()]->AddVehicle();
@@ -75,12 +89,12 @@ void RoadSystem::UpdateTrafficLights()
 }
 
 
-void RoadSystem::ResetExitedVehicles()
+void RoadSystem::ResetRoadSystem()
 {
-	roadSystem[firstRoad.GetExitCellPosition()]->ResetExitCount();
-	roadSystem[secondRoad.GetExitCellPosition()]->ResetExitCount();
-	roadSystem[thirdRoad.GetExitCellPosition()]->ResetExitCount();
-	roadSystem[fourthRoad.GetExitCellPosition()]->ResetExitCount();
+	ClearRoad(firstRoad);
+	ClearRoad(secondRoad);
+	ClearRoad(thirdRoad);
+	ClearRoad(fourthRoad);
 }
 
 

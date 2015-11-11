@@ -14,10 +14,7 @@ std::mutex Tournament::mutex;
 Tournament::Tournament(int generations, int populationSize) : generations(generations),
 															  poolSize(populationSize - populationSize % NUMBER_OF_THREADS)
 {
-	Logger::LogLine("Setting up tournament's pool...");
 	SetPool();
-	SetupSimulators();
-	Logger::LogLine("Tournament's pool setup finished, starting confrontations: ");
 }
 
 
@@ -27,15 +24,6 @@ void Tournament::SetPool()
 	
 	for (int i = 0; i < poolSize; i++)
 		binaryCyclesPool[i] = BinaryCycleBuilder::BuildRandom();
-}
-
-
-void Tournament::SetupSimulators()
-{
-	firSimulator.SetSimulationSteps(900);
-	secondSimulator.SetSimulationSteps(900);
-	thirdSimulator.SetSimulationSteps(900);
-	fourthSimulator.SetSimulationSteps(900);
 }
 
 
@@ -94,23 +82,10 @@ void Tournament::SetUpNextGeneration()
 }
 
 
-void Tournament::PrintLastResults()
-{
-	Logger::LogLine("Running last simulation with the best fitness...");
-	firSimulator.SetSimulationSteps(7200);
-	firSimulator.SetTrafficLightCycles(binaryCyclesPool[0]);
-	firSimulator.Simulate();
-	Logger::LogLine("Total vehicles that exited the roads: ");
-	Logger::LogLine(firSimulator.GetExitedVehiclesForLastSimulation());
-}
-
-
 void Tournament::Execute()
 {
 	for (int i = 0; i < generations; i++)
 	{
-		Logger::LogLine("Selected genes...");
-
 		for (int j = 0; j < poolSize / NUMBER_OF_THREADS; j++)
 		{
 			std::thread firstSimulation(&Tournament::Compete, this, std::ref(firSimulator));
@@ -122,16 +97,12 @@ void Tournament::Execute()
 			secondSimulation.join();
 			thirdSimulation.join();
 			fourthSimulation.join();
-			
-			Logger::LogLine(selectedBinaryCycles.size());
 		}
 
 		SortSelectedGenesByFitness();
-		std::cout << "\nBest fitness in this generation " << i << ": " << std::endl;
+		std::cout << "\nBest fitness in generation " << i + 1 << ": " << std::endl;
 		Logger::LogLine(selectedBinaryCycles[0].GetFitness());
 
 		SetUpNextGeneration();
 	}
-
-	PrintLastResults();
 }

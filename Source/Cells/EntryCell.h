@@ -16,4 +16,10 @@ public:
 	void SetState(CellState state) override;
 
 	void AddVehicle() override;
+
+	void ResetQueue() override 
+	{ 
+		std::queue<std::shared_ptr<Vehicle>> emptyQueue;
+		vehicleQueue.swap(emptyQueue);
+	}
 };

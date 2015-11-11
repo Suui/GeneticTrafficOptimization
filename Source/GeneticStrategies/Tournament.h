@@ -18,16 +18,12 @@ class Tournament
 
 	void SetPool();
 	
-	void SetupSimulators();
-	
 	void Compete(Simulator& simulator);
 	
 	void SortSelectedGenesByFitness();
 	
 	void SetUpNextGeneration();
 	
-	void PrintLastResults();
-
 
 public:
 
