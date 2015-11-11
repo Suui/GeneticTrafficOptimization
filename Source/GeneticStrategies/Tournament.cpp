@@ -1,14 +1,20 @@
 ﻿#include "Tournament.h"
+#include "TwoPointCrossover.h"
 #include "../Builders/BinaryCycleBuilder.h"
 #include "../Utility/Math.hpp"
 #include "../Utility/Logger.hpp"
+#include <thread>
+#include <random>
+#include <algorithm>
+#include "Mutation.h"
 
 
-Tournament::Tournament(int confrontations, int poolSize) : confrontations(confrontations), poolSize(poolSize)
+std::mutex Tournament::mutex;
+
+Tournament::Tournament(int generations, int populationSize) : generations(generations),
+															  poolSize(populationSize - populationSize % NUMBER_OF_THREADS)
 {
-	Logger::LogLine("Setting up tournament's pool...");
 	SetPool();
-	Logger::LogLine("Tournament's pool setup finished, starting confrontations:");
 }
 
 
@@ -21,41 +27,91 @@ void Tournament::SetPool()
 }
 
 
-void Tournament::Execute()
+void Tournament::Compete(Simulator& simulator)
 {
-	for (int i = 0; i < confrontations; i++)
+	std::random_device randomGenerator;
+	std::mt19937 seed(randomGenerator());
+	std::uniform_int_distribution<> random(0, poolSize - 1);
+
+	int index = random(seed);
+	simulator.SetTrafficLightCycles(binaryCyclesPool[index]);
+	simulator.Simulate();
+	FitnessBinaryCyclePair firstResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation());
+
+	index = random(seed);
+	simulator.SetTrafficLightCycles(binaryCyclesPool[index]);
+	simulator.Simulate();
+	FitnessBinaryCyclePair secondResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation());
+
+	std::lock_guard<std::mutex> guard(mutex);
+	if (firstResult >= secondResult)
+		selectedBinaryCycles.push_back(firstResult);
+	else
+		selectedBinaryCycles.push_back(secondResult);
+}
+
+
+void Tournament::SortSelectedGenesByFitness()
+{
+	std::sort(selectedBinaryCycles.begin(), selectedBinaryCycles.end(), std::greater<FitnessBinaryCyclePair>());
+}
+
+
+void Tournament::Elitism()
+{
+	binaryCyclesPool[0] = selectedBinaryCycles[0].GetBinaryCycle();
+	binaryCyclesPool[1] = selectedBinaryCycles[1].GetBinaryCycle();
+}
+
+
+void Tournament::TwoPointCrossover()
+{
+	for (auto i = 2, index = 0; i < poolSize; i += 2)
 	{
-		int randomIndex;
-		SetupSimulatorForNextSimulation(randomIndex);
-		simulator.Simulate();
+		std::vector<int> father = selectedBinaryCycles[index++].GetBinaryCycle();
+		std::vector<int> mother = selectedBinaryCycles[Math::RandomExclusive(poolSize)].GetBinaryCycle();
 
-		CheckFitness(randomIndex);
+		std::vector<std::vector<int>> sons = TwoPointCrossover::Reproduce(father, mother);
 
-		binaryCyclesPool.erase(binaryCyclesPool.begin() + randomIndex);
-		Logger::LogLine(bestFitness);
+		Mutation::MaybeMutate(sons[0]);
+		Mutation::MaybeMutate(sons[1]);
+
+		binaryCyclesPool[i] = sons[0];
+		binaryCyclesPool[i + 1] = sons[1];
 	}
 }
 
 
-void Tournament::SetupSimulatorForNextSimulation(int& randomIndex)
+void Tournament::SetUpNextGeneration()
 {
-	Math::SetRandomSeed();
-	randomIndex = Math::RandomExclusive(binaryCyclesPool.size());
-	simulator.SetTrafficLightCycles(binaryCyclesPool[randomIndex]);
+	Elitism();
+	TwoPointCrossover();
+
+	selectedBinaryCycles.clear();
 }
 
 
-void Tournament::CheckFitness(int& randomIndex)
+void Tournament::Execute()
 {
-	int fitness = simulator.GetExitedVehiclesForLastSimulation();
+	for (int i = 0; i < generations; i++)
+	{
+		for (int j = 0; j < poolSize / NUMBER_OF_THREADS; j++)
+		{
+			std::thread firstSimulation(&Tournament::Compete, this, std::ref(firSimulator));
+			std::thread secondSimulation(&Tournament::Compete, this, std::ref(secondSimulator));
+			std::thread thirdSimulation(&Tournament::Compete, this, std::ref(thirdSimulator));
+			std::thread fourthSimulation(&Tournament::Compete, this, std::ref(fourthSimulator));
 
-	if (fitness > bestFitness)
-		UpdateBestFitnessAndCycle(randomIndex, fitness);
-}
+			firstSimulation.join();
+			secondSimulation.join();
+			thirdSimulation.join();
+			fourthSimulation.join();
+		}
 
+		SortSelectedGenesByFitness();
+		std::cout << "\nBest fitness in generation " << i + 1 << ": " << std::endl;
+		Logger::LogLine(selectedBinaryCycles[0].GetFitness());
 
-void Tournament::UpdateBestFitnessAndCycle(int randomIndex, int fitness)
-{
-	bestCycle = binaryCyclesPool[randomIndex];
-	bestFitness = fitness;
+		SetUpNextGeneration();
+	}
 }

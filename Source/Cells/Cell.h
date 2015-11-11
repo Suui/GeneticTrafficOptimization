@@ -65,7 +65,7 @@ public:
 
 	void SetVehicle(std::shared_ptr<Vehicle>& vehicle) { this->vehicle = vehicle; }
 
-	void ResetVehicle() { vehicle.reset(); }
+	void ResetVehicle() { if (vehicle) vehicle.reset(); }
 
 	virtual void AddVehicle() {}
 
@@ -76,6 +76,8 @@ public:
 	int GetExitCount() { return exitCount; }
 
 	virtual void SetTrafficLightState(TrafficLightState trafficLightState) { this->trafficLightState = trafficLightState; }
+
+	virtual void ResetQueue() {}
 
 	virtual void ResetExitCount() {}
 

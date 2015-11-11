@@ -26,5 +26,5 @@ void Simulator::Simulate()
 	}
 
 	exitedVehiclesForLastSimulation = roadSystem.GetExitedVehicles();
-	roadSystem.ResetExitedVehicles();
+	roadSystem.ResetRoadSystem();
 }
