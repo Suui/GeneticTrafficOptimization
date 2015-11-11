@@ -24,6 +24,8 @@ class Tournament
 
 	void Elitism();
 
+	void TwoPointCrossover();
+
 	void SetUpNextGeneration();
 	
 

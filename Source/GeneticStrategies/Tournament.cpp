@@ -64,7 +64,8 @@ void Tournament::Elitism()
 }
 
 
-	// Two Point Crossover
+void Tournament::TwoPointCrossover()
+{
 	for (auto i = 2, index = 0; i < poolSize; i += 2)
 	{
 		std::vector<int> father = selectedBinaryCycles[index++].GetBinaryCycle();
@@ -78,10 +79,13 @@ void Tournament::Elitism()
 		binaryCyclesPool[i] = sons[0];
 		binaryCyclesPool[i + 1] = sons[1];
 	}
+}
+
 
 void Tournament::SetUpNextGeneration()
 {
 	Elitism();
+	TwoPointCrossover();
 
 	selectedBinaryCycles.clear();
 }
