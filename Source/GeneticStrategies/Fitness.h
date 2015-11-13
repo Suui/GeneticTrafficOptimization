@@ -13,8 +13,8 @@ private:
 
 public:
 
-	Fitness(std::vector<int>& binaryCycle, int& fitness)	: binaryCycle(binaryCycle),
-																		  fitness(fitness)
+	Fitness(std::vector<int>& binaryCycle, int& fitness) : binaryCycle(binaryCycle),
+														   fitness(fitness)
 	{}
 
 	std::vector<int>& GetBinaryCycle() { return binaryCycle; }
