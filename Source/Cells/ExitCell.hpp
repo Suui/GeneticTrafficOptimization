@@ -10,16 +10,15 @@ public:
 
 	ExitCell(Direction direction) : Cell(direction) {}
 
-	bool isExitCell() override { return true; }
-
 	void VehicleExit() override
 	{
 		if (IsOccupied())
 		{
 			exitCount += 1;
 			state = Empty;
+			vehicle.reset();
 		}
 	}
 
-	void ResetExitCout() override { exitCount = 0; }
+	void ResetExitCount() override { exitCount = 0; }
 };

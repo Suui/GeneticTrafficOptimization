@@ -1,5 +1,5 @@
 ﻿#include "Simulator.h"
-#include "../Builders/RoadBuilder.h"
+#include "../Builders/RoadBuilder.hpp"
 #include "../Builders/BinaryCycleBuilder.h"
 
 
@@ -26,5 +26,5 @@ void Simulator::Simulate()
 	}
 
 	exitedVehiclesForLastSimulation = roadSystem.GetExitedVehicles();
-	roadSystem.ResetExitedVehicles();
+	roadSystem.ResetRoadSystem();
 }

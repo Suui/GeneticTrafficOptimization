@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "../Utility/Position.h"
+#include "../Utility/Position.hpp"
 #include "../Cells/Cell.h"
 #include <vector>
 
