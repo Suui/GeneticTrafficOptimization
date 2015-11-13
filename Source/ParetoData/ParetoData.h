@@ -10,6 +10,8 @@ struct ParetoData
 {
 	void AddDataFrom(std::shared_ptr<Vehicle>& vehicle) { gasData[gasData.size()] = vehicle->GetGasData(); }
 
+	void Reset() { gasData.clear(); }
+
 
 private:
 

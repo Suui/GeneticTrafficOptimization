@@ -48,6 +48,8 @@ public:
 
 	RoadSystem() {}
 
+	virtual ~RoadSystem() {}
+
 	virtual RoadSystem& WithFirstRoad(Road road);
 
 	virtual RoadSystem& WithSecondRoad(Road road);
