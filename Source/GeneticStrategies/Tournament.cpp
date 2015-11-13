@@ -36,12 +36,12 @@ void Tournament::Compete(Simulator& simulator)
 	int index = random(seed);
 	simulator.SetTrafficLightCycles(binaryCyclesPool[index]);
 	simulator.Simulate();
-	FitnessBinaryCyclePair firstResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation());
+	Fitness firstResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation());
 
 	index = random(seed);
 	simulator.SetTrafficLightCycles(binaryCyclesPool[index]);
 	simulator.Simulate();
-	FitnessBinaryCyclePair secondResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation());
+	Fitness secondResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation());
 
 	std::lock_guard<std::mutex> guard(mutex);
 	if (firstResult >= secondResult)
@@ -53,7 +53,7 @@ void Tournament::Compete(Simulator& simulator)
 
 void Tournament::SortSelectedGenesByFitness()
 {
-	std::sort(selectedBinaryCycles.begin(), selectedBinaryCycles.end(), std::greater<FitnessBinaryCyclePair>());
+	std::sort(selectedBinaryCycles.begin(), selectedBinaryCycles.end(), std::greater<Fitness>());
 }
 
 
