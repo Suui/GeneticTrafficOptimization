@@ -4,7 +4,7 @@
 
 void Mutation::MaybeMutate(std::vector<int>& binaryCycle)
 {
-	if (Math::RandomExclusive(100) != 50) return;
+	if (Math::RandomExclusive(100) < 50) return;
 
 	int mutationIndex = Math::RandomExclusive(binaryCycle.size());
 	
