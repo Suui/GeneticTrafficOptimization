@@ -8,6 +8,7 @@ class Simulator
 	RoadSystem roadSystem;
 	int SIMULATION_STEPS = 7200;
 	int exitedVehiclesForLastSimulation = 0;
+	int averageGHGForLastSimulation = 0;
 
 
 public:

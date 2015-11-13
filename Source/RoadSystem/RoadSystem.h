@@ -71,4 +71,6 @@ public:
 	void ResetRoadSystem();
 	
 	int GetExitedVehicles();
+
+	int GetAverageGHG() { return gasData.GetGHGAverage(); }
 };
