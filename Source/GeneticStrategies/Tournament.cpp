@@ -91,21 +91,27 @@ void Tournament::SetUpNextGeneration()
 }
 
 
+void Tournament::RunSimulations()
+{
+	std::thread firstSimulation(&Tournament::Compete, this, std::ref(firSimulator));
+	std::thread secondSimulation(&Tournament::Compete, this, std::ref(secondSimulator));
+	std::thread thirdSimulation(&Tournament::Compete, this, std::ref(thirdSimulator));
+	std::thread fourthSimulation(&Tournament::Compete, this, std::ref(fourthSimulator));
+
+	firstSimulation.join();
+	secondSimulation.join();
+	thirdSimulation.join();
+	fourthSimulation.join();
+}
+
+
 void Tournament::Execute()
 {
 	for (int i = 0; i < generations; i++)
 	{
 		for (int j = 0; j < poolSize / NUMBER_OF_THREADS; j++)
 		{
-			std::thread firstSimulation(&Tournament::Compete, this, std::ref(firSimulator));
-			std::thread secondSimulation(&Tournament::Compete, this, std::ref(secondSimulator));
-			std::thread thirdSimulation(&Tournament::Compete, this, std::ref(thirdSimulator));
-			std::thread fourthSimulation(&Tournament::Compete, this, std::ref(fourthSimulator));
-
-			firstSimulation.join();
-			secondSimulation.join();
-			thirdSimulation.join();
-			fourthSimulation.join();
+			RunSimulations();
 		}
 
 		SortSelectedGenesByFitness();

@@ -27,7 +27,9 @@ class Tournament
 	void TwoPointCrossover();
 
 	void SetUpNextGeneration();
-	
+
+	void RunSimulations();
+
 
 public:
 
