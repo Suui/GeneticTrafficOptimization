@@ -103,7 +103,6 @@
 #include "../TestRunner/catch.hpp"
 #include <RoadSystem/RoadSystem.h>
 #include <Builders/RoadBuilder.hpp>
-#include <Builders/BinaryCycleBuilder.h>
 
 
 SCENARIO("Road System Should")
