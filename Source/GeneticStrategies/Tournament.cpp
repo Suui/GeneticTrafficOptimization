@@ -36,12 +36,12 @@ void Tournament::Compete(Simulator& simulator)
 	int index = random(seed);
 	simulator.SetTrafficLightCycles(binaryCyclesPool[index]);
 	simulator.Simulate();
-	Fitness firstResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation());
+	Fitness firstResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation(), simulator.GetAverageGHGForLastSimulation());
 
 	index = random(seed);
 	simulator.SetTrafficLightCycles(binaryCyclesPool[index]);
 	simulator.Simulate();
-	Fitness secondResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation());
+	Fitness secondResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation(), simulator.GetAverageGHGForLastSimulation());
 
 	std::lock_guard<std::mutex> guard(mutex);
 	if (firstResult >= secondResult)

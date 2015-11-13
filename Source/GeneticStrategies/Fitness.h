@@ -8,14 +8,17 @@ struct Fitness
 private:
 
 	std::vector<int> binaryCycle;
-	int fitness;
+	int fitness, exitedVehicles, averageGHG;
 
 
 public:
 
-	Fitness(std::vector<int>& binaryCycle, int& fitness) : binaryCycle(binaryCycle),
-														   fitness(fitness)
-	{}
+	Fitness(std::vector<int>& binaryCycle, int& exitedVehicles, int& averageGHG) : binaryCycle(binaryCycle),
+																				   exitedVehicles(exitedVehicles),
+																				   averageGHG(averageGHG)
+	{
+		fitness = exitedVehicles;
+	}
 
 	std::vector<int>& GetBinaryCycle() { return binaryCycle; }
 

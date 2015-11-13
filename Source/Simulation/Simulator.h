@@ -22,4 +22,6 @@ public:
 	void SetSimulationSteps(int simulationSteps) { SIMULATION_STEPS = simulationSteps; }
 
 	int& GetExitedVehiclesForLastSimulation() { return exitedVehiclesForLastSimulation; }
+
+	int& GetAverageGHGForLastSimulation() { return averageGHGForLastSimulation; }
 };
