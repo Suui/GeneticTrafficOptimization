@@ -15,7 +15,7 @@ struct ParetoData
 	void Reset() { gasData.clear(); }
 
 
-private:
+protected:
 
 	std::map<int, std::vector<int>> gasData;
 };

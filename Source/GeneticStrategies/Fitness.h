@@ -53,4 +53,6 @@ public:
 	{
 		return !(Lhs < Rhs);
 	}
+
+	int& GetAverageGHG() { return averageGHG; }
 };

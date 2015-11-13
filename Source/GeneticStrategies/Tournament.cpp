@@ -117,6 +117,7 @@ void Tournament::Execute()
 		SortSelectedGenesByFitness();
 		std::cout << "\nBest fitness in generation " << i + 1 << ": " << std::endl;
 		Logger::LogLine(selectedBinaryCycles[0].GetFitness());
+		Logger::LogLine(selectedBinaryCycles[0].GetAverageGHG());
 
 		SetUpNextGeneration();
 	}
