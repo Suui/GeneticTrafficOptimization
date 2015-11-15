@@ -22,5 +22,5 @@ int ParetoData::GetGHGAverage()
 		average += value;
 	}
 
-	return average / totals.size();
+	return average == 0 ? 0 : average / totals.size();
 }
