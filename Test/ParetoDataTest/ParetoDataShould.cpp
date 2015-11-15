@@ -1,5 +1,7 @@
 #include "../TestRunner/catch.hpp"
 #include "ParetoDataStub.h"
+#include <Simulation/Simulator.h>
+#include <Builders/BinaryCycleBuilder.h>
 
 
 TEST_CASE("ParetoData should")
@@ -14,5 +16,23 @@ TEST_CASE("ParetoData should")
 		paretoData.StubSetGasData(data);
 
 		CHECK(paretoData.GetGHGAverage() == 2);
+	}
+
+	GIVEN("a simulator")
+	{
+		Simulator simulator;
+
+		WHEN("it has random traffic light cycles and 200 steps")
+		{
+			simulator.SetTrafficLightCycles(BinaryCycleBuilder::BuildChangingAllTheTime());
+			simulator.SetSimulationSteps(200);
+
+			THEN("should correctly return an average GHG")
+			{
+				simulator.Simulate();
+
+				CHECK(simulator.GetAverageGHGForLastSimulation() == 20);
+			}
+		}
 	}
 }
