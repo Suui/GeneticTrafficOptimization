@@ -85,12 +85,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ParetoDataTest\ParetoDataMock.h" />
+    <ClInclude Include="ParetoDataTest\ParetoDataStub.h" />
     <ClInclude Include="TestRunner\catch.hpp" />
     <ClInclude Include="TestRunner\hippomocks.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ParetoDataTest\ParetoDataMock.cpp" />
+    <ClCompile Include="ParetoDataTest\ParetoDataStub.cpp" />
     <ClCompile Include="ParetoDataTest\ParetoDataShould.cpp" />
     <ClCompile Include="RoadSystemTest\RoadSystemShould.cpp" />
     <ClCompile Include="RoadSystemTest\SimulatorShould.cpp" />
