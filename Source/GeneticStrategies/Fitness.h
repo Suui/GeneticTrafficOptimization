@@ -10,16 +10,16 @@ private:
 	std::vector<int> binaryCycle;
 	double fitness, exitedVehicles, averageGHG;
 	double MAX_EXITED_VEHICLES = 14372.0;
+	double MAX_AVERAGE = 1.4;
 
 
 public:
-
 
 	Fitness(std::vector<int>& binaryCycle, double& exitedVehicles, double& averageGHG) : binaryCycle(binaryCycle),
 																				   exitedVehicles(exitedVehicles),
 																				   averageGHG(averageGHG)
 	{
-		fitness = exitedVehicles / MAX_EXITED_VEHICLES * 0.5 + averageGHG / 2 * 0.5;
+		fitness = exitedVehicles / MAX_EXITED_VEHICLES * 0.5 + averageGHG / MAX_AVERAGE * 0.5;
 	}
 
 	std::vector<int>& GetBinaryCycle() { return binaryCycle; }
