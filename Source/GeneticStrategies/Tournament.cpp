@@ -107,9 +107,9 @@ void Tournament::RunSimulations()
 
 void Tournament::Execute()
 {
-	for (int i = 0; i < generations; i++)
+	for (auto i = 0; i < generations; i++)
 	{
-		for (int j = 0; j < poolSize / NUMBER_OF_THREADS; j++)
+		for (auto j = 0; j < poolSize / NUMBER_OF_THREADS; j++)
 		{
 			RunSimulations();
 		}
