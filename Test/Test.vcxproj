@@ -60,7 +60,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Source\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Cell.obj;EntryCell.obj;Road.obj;RoadSystem.obj;TrafficLightPair.obj;BinaryCycleBuilder.obj;BinaryCycleParser.obj;Simulator.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Cell.obj;EntryCell.obj;Road.obj;RoadSystem.obj;TrafficLightPair.obj;BinaryCycleBuilder.obj;BinaryCycleParser.obj;Simulator.obj;ParetoData.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -81,14 +81,17 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDIr)Source\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Cell.obj;EntryCell.obj;Road.obj;RoadSystem.obj;TrafficLightPair.obj;BinaryCycleBuilder.obj;BinaryCycleParser.obj;Simulator.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Cell.obj;EntryCell.obj;Road.obj;RoadSystem.obj;TrafficLightPair.obj;BinaryCycleBuilder.obj;BinaryCycleParser.obj;Simulator.obj;ParetoData.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ParetoDataTest\ParetoDataStub.h" />
     <ClInclude Include="TestRunner\catch.hpp" />
     <ClInclude Include="TestRunner\hippomocks.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ParetoDataTest\ParetoDataStub.cpp" />
+    <ClCompile Include="ParetoDataTest\ParetoDataShould.cpp" />
     <ClCompile Include="RoadSystemTest\RoadSystemShould.cpp" />
     <ClCompile Include="RoadSystemTest\SimulatorShould.cpp" />
     <ClCompile Include="TestRunner\TestRunner.hpp" />

@@ -12,9 +12,9 @@
     <ClCompile Include="Parsers\BinaryCycleParser.cpp" />
     <ClCompile Include="Simulation\Simulator.cpp" />
     <ClCompile Include="GeneticStrategies\Tournament.cpp" />
-    <ClCompile Include="GeneticStrategies\FitnessBinaryCyclePair.cpp" />
     <ClCompile Include="GeneticStrategies\TwoPointCrossover.cpp" />
     <ClCompile Include="GeneticStrategies\Mutation.cpp" />
+    <ClCompile Include="GeneticStrategies\Fitness.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Builders\BinaryCycleBuilder.h" />
@@ -35,8 +35,8 @@
     <ClInclude Include="Cells\TrafficLightCell.hpp" />
     <ClInclude Include="Cells\ExitCell.hpp" />
     <ClInclude Include="Builders\RoadBuilder.hpp" />
-    <ClInclude Include="GeneticStrategies\FitnessBinaryCyclePair.h" />
     <ClInclude Include="GeneticStrategies\TwoPointCrossover.h" />
     <ClInclude Include="GeneticStrategies\Mutation.h" />
+    <ClInclude Include="GeneticStrategies\Fitness.h" />
   </ItemGroup>
 </Project>
