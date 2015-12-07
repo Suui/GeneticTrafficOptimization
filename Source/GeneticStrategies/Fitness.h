@@ -19,7 +19,7 @@ public:
 																				   exitedVehicles(exitedVehicles),
 																				   averageGHG(averageGHG)
 	{
-		fitness = exitedVehicles;
+		fitness = exitedVehicles / MAX_EXITED_VEHICLES * 0.5 + averageGHG / 2 * 0.5;
 	}
 
 	std::vector<int>& GetBinaryCycle() { return binaryCycle; }
