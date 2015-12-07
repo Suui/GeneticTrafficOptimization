@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "../Simulation/Simulator.h"
-#include "FitnessBinaryCyclePair.h"
+#include "Fitness.h"
 #include <vector>
 #include <mutex>
 
@@ -14,7 +14,7 @@ class Tournament
 
 	Simulator firSimulator, secondSimulator, thirdSimulator, fourthSimulator;
 	std::vector<std::vector<int>> binaryCyclesPool;
-	std::vector<FitnessBinaryCyclePair> selectedBinaryCycles;
+	std::vector<Fitness> selectedBinaryCycles;
 
 	void SetPool();
 	

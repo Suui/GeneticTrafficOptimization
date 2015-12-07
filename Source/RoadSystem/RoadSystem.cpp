@@ -57,7 +57,6 @@ void RoadSystem::MoveVehicle(Road& road, std::shared_ptr<Cell>& currentCell, std
 }
 
 
-
 void RoadSystem::ClearRoad(Road& road)
 {
 	roadSystem[road.GetExitCellPosition()]->ResetExitCount();
@@ -100,7 +99,7 @@ void RoadSystem::ResetRoadSystem()
 }
 
 
-int RoadSystem::GetExitedVehicles()
+double RoadSystem::GetExitedVehicles()
 {
 	return roadSystem[firstRoad.GetExitCellPosition()]->GetExitCount()
 		 + roadSystem[secondRoad.GetExitCellPosition()]->GetExitCount()

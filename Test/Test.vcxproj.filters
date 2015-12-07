@@ -21,6 +21,9 @@
     <ClInclude Include="TestRunner\hippomocks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ParetoDataTest\ParetoDataStub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestRunner\TestRunner.hpp">
@@ -30,6 +33,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RoadSystemTest\SimulatorShould.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParetoDataTest\ParetoDataShould.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParetoDataTest\ParetoDataStub.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

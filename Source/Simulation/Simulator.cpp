@@ -26,5 +26,6 @@ void Simulator::Simulate()
 	}
 
 	exitedVehiclesForLastSimulation = roadSystem.GetExitedVehicles();
+	averageGHGForLastSimulation = roadSystem.GetAverageGHG();
 	roadSystem.ResetRoadSystem();
 }

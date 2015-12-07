@@ -36,12 +36,12 @@ void Tournament::Compete(Simulator& simulator)
 	int index = random(seed);
 	simulator.SetTrafficLightCycles(binaryCyclesPool[index]);
 	simulator.Simulate();
-	FitnessBinaryCyclePair firstResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation());
+	Fitness firstResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation(), simulator.GetAverageGHGForLastSimulation());
 
 	index = random(seed);
 	simulator.SetTrafficLightCycles(binaryCyclesPool[index]);
 	simulator.Simulate();
-	FitnessBinaryCyclePair secondResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation());
+	Fitness secondResult(binaryCyclesPool[index], simulator.GetExitedVehiclesForLastSimulation(), simulator.GetAverageGHGForLastSimulation());
 
 	std::lock_guard<std::mutex> guard(mutex);
 	if (firstResult >= secondResult)
@@ -53,7 +53,7 @@ void Tournament::Compete(Simulator& simulator)
 
 void Tournament::SortSelectedGenesByFitness()
 {
-	std::sort(selectedBinaryCycles.begin(), selectedBinaryCycles.end(), std::greater<FitnessBinaryCyclePair>());
+	std::sort(selectedBinaryCycles.begin(), selectedBinaryCycles.end(), std::greater<Fitness>());
 }
 
 
@@ -107,9 +107,9 @@ void Tournament::RunSimulations()
 
 void Tournament::Execute()
 {
-	for (int i = 0; i < generations; i++)
+	for (auto i = 0; i < generations; i++)
 	{
-		for (int j = 0; j < poolSize / NUMBER_OF_THREADS; j++)
+		for (auto j = 0; j < poolSize / NUMBER_OF_THREADS; j++)
 		{
 			RunSimulations();
 		}
@@ -117,6 +117,7 @@ void Tournament::Execute()
 		SortSelectedGenesByFitness();
 		std::cout << "\nBest fitness in generation " << i + 1 << ": " << std::endl;
 		Logger::LogLine(selectedBinaryCycles[0].GetFitness());
+		Logger::LogLine(selectedBinaryCycles[0].GetAverageGHG());
 
 		SetUpNextGeneration();
 	}
