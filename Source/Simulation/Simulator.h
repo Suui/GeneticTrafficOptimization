@@ -7,8 +7,8 @@ class Simulator
 {
 	RoadSystem roadSystem;
 	int SIMULATION_STEPS = 7200;
-	int exitedVehiclesForLastSimulation = 0;
-	int averageGHGForLastSimulation = 0;
+	double exitedVehiclesForLastSimulation = 0;
+	double averageGHGForLastSimulation = 0;
 
 
 public:
@@ -21,7 +21,7 @@ public:
 
 	void SetSimulationSteps(int simulationSteps) { SIMULATION_STEPS = simulationSteps; }
 
-	int& GetExitedVehiclesForLastSimulation() { return exitedVehiclesForLastSimulation; }
+	double& GetExitedVehiclesForLastSimulation() { return exitedVehiclesForLastSimulation; }
 
-	int& GetAverageGHGForLastSimulation() { return averageGHGForLastSimulation; }
+	double& GetAverageGHGForLastSimulation() { return averageGHGForLastSimulation; }
 };

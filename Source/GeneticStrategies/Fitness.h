@@ -8,12 +8,14 @@ struct Fitness
 private:
 
 	std::vector<int> binaryCycle;
-	int fitness, exitedVehicles, averageGHG;
+	double fitness, exitedVehicles, averageGHG;
+	double MAX_EXITED_VEHICLES = 14372.0;
 
 
 public:
 
-	Fitness(std::vector<int>& binaryCycle, int& exitedVehicles, int& averageGHG) : binaryCycle(binaryCycle),
+
+	Fitness(std::vector<int>& binaryCycle, double& exitedVehicles, double& averageGHG) : binaryCycle(binaryCycle),
 																				   exitedVehicles(exitedVehicles),
 																				   averageGHG(averageGHG)
 	{
@@ -22,7 +24,7 @@ public:
 
 	std::vector<int>& GetBinaryCycle() { return binaryCycle; }
 
-	int& GetFitness() { return fitness; }
+	double& GetFitness() { return fitness; }
 
 	friend bool operator==(const Fitness& Lhs, const Fitness& Rhs)
 	{
@@ -54,5 +56,5 @@ public:
 		return !(Lhs < Rhs);
 	}
 
-	int& GetAverageGHG() { return averageGHG; }
+	double& GetAverageGHG() { return averageGHG; }
 };

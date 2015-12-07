@@ -10,7 +10,7 @@ struct ParetoData
 {
 	void AddDataFrom(std::shared_ptr<Vehicle>& vehicle) { gasData[gasData.size()] = vehicle->GetGasData(); }
 
-	int GetGHGAverage();
+	double GetGHGAverage();
 
 	void Reset() { gasData.clear(); }
 

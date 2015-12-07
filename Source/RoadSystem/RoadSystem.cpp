@@ -99,7 +99,7 @@ void RoadSystem::ResetRoadSystem()
 }
 
 
-int RoadSystem::GetExitedVehicles()
+double RoadSystem::GetExitedVehicles()
 {
 	return roadSystem[firstRoad.GetExitCellPosition()]->GetExitCount()
 		 + roadSystem[secondRoad.GetExitCellPosition()]->GetExitCount()

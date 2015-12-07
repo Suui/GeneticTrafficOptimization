@@ -70,7 +70,7 @@ public:
 
 	void ResetRoadSystem();
 	
-	int GetExitedVehicles();
+	double GetExitedVehicles();
 
-	int GetAverageGHG() { return gasData.GetGHGAverage(); }
+	double GetAverageGHG() { return gasData.GetGHGAverage(); }
 };

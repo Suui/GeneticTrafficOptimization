@@ -1,7 +1,7 @@
 ﻿#include "ParetoData.h"
 
 
-int ParetoData::GetGHGAverage()
+double ParetoData::GetGHGAverage()
 {
 	std::vector<int> totals;
 
@@ -16,7 +16,7 @@ int ParetoData::GetGHGAverage()
 		totals.push_back(sum);
 	}
 
-	auto average = 0;
+	auto average = 0.0;
 	for (auto value : totals)
 	{
 		average += value;
