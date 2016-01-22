@@ -14,7 +14,6 @@
     <ClCompile Include="GeneticStrategies\Tournament.cpp" />
     <ClCompile Include="GeneticStrategies\TwoPointCrossover.cpp" />
     <ClCompile Include="GeneticStrategies\Mutation.cpp" />
-    <ClCompile Include="GeneticStrategies\Fitness.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Builders\BinaryCycleBuilder.h" />

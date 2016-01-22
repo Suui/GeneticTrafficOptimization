@@ -104,7 +104,6 @@
     <ClCompile Include="Builders\BinaryCycleBuilder.cpp" />
     <ClCompile Include="Cells\Cell.cpp" />
     <ClCompile Include="Cells\EntryCell.cpp" />
-    <ClCompile Include="GeneticStrategies\Fitness.cpp" />
     <ClCompile Include="GeneticStrategies\Mutation.cpp" />
     <ClCompile Include="GeneticStrategies\TwoPointCrossover.cpp" />
     <ClCompile Include="ParetoData\ParetoData.cpp" />
