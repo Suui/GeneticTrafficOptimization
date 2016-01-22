@@ -10,3 +10,4 @@ Test/Debug/
 Release/
 Source/Release/
 Test/Release/
+*.opendb

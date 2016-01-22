@@ -115,9 +115,15 @@ void Tournament::Execute()
 		}
 
 		SortSelectedGenesByFitness();
-		std::cout << "\nBest fitness in generation " << i + 1 << ": " << std::endl;
-		Logger::LogLine(selectedBinaryCycles[0].GetFitness());
-		Logger::LogLine(selectedBinaryCycles[0].GetAverageGHG());
+		//std::cout << "\nBest fitness in generation " << i + 1 << ": " << std::endl;
+//		std::cout << "Fitness: ";
+//		Logger::LogLine(selectedBinaryCycles[0].GetFitness());
+//		std::cout << "Average GHG: ";
+//		Logger::LogLine(selectedBinaryCycles[0].GetAverageGHG());
+
+		std::cout << "Fitness, " << selectedBinaryCycles[0].GetFitness() << ", "
+				  << "ExitedVehiclesFitness, " << selectedBinaryCycles[0].GetExitedVehiclesFitness() << ", "
+				  << "GHGFitness, " << selectedBinaryCycles[0].GetGHGFitness() << std::endl;
 
 		SetUpNextGeneration();
 	}
